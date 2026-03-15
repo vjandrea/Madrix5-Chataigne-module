@@ -1,67 +1,954 @@
 {
-  "name":"My custom module",
-  "type":"OSC",
-  "path":"Custom",
-  
-  "version":"1.0.0",
-  "description":"My module description",
-  "url":"https://github.com/tommag/Sample-Chataigne-module",
-  "downloadURL":"https://github.com/tommag/Sample-Chataigne-module/archive/master.zip",
+  "name": "Madrix 5",
+  "type": "OSC",
+  "path": "Software",
+  "version": "1.0.0",
+  "description": "Remote control of MADRIX 5 lighting software via OSC",
+  "url": "https://help.madrix.com/m5/html/madrix/hidd_osc.html",
 
-  "hasInput":true,
-  "hasOutput":true, 
+  "hasInput": true,
+  "hasOutput": true,
+  "hideDefaultCommands": false,
 
-  "hideDefaultCommands":false,
-  
-  "defaults":
-  {	
-    "autoAdd":false,
-    "oscInput":
+  "defaults": {
+    "autoAdd": true,
+    "OSC Outputs": 
     {
-      "localPort":9001
-    }
-  },
-
-  "parameters":
-  {
-    "Module param":
-    {
-      "type":"Integer"
-    }
-  },
-
-  "hideDefaultParameters": [ "autoAdd", "oscInput/localPort"],
-
-  "scripts": 
-  [
-    "moduleScript.js"
-  ],
-
-  "values":
-  {
-    "Module value":
-    {
-      "type":"Float"
-    }
-  },
-
-  "commands":
-  {
-    
-    "Custom command":
-    {
-      "menu":"",  
-      "callback":"customCmd",
-      "parameters":
-      {
-        "Value":
-        {
-          "type":"Integer",
-          "min":0,
-          "max":100,
-          "default":0
-        }
+      "OSC Output": { 
+        "local": true,
+        "remotePort": 9001
       }
+    },
+    "OSC Input": {
+      "enabled": false,
+      "localPort": 9002
     }
+  },
+
+  "hideDefaultParameters": ["autoAdd"],
+
+  "scripts": ["madrix5.js"],
+
+  "commands": {
+
+    "Audio Input AGC": {
+      "menu": "Audio/Input",
+      "callback": "audioInputAgc",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "Audio Input Level": {
+      "menu": "Audio/Input",
+      "callback": "audioInputLevel",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 100, "default": 0 } }
+    },
+    "Audio Input Level Offset": {
+      "menu": "Audio/Input",
+      "callback": "audioInputLevelOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Audio Input Mute": {
+      "menu": "Audio/Input",
+      "callback": "audioInputMute",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "Audio Output Level": {
+      "menu": "Audio/Output",
+      "callback": "audioOutputLevel",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 100, "default": 0 } }
+    },
+    "Audio Output Level Offset": {
+      "menu": "Audio/Output",
+      "callback": "audioOutputLevelOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Audio Output Mute": {
+      "menu": "Audio/Output",
+      "callback": "audioOutputMute",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+
+    "DeckA Pause": {
+      "menu": "Deck A",
+      "callback": "deckAPause",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "DeckA Speed Master": {
+      "menu": "Deck A",
+      "callback": "deckASpeedMaster",
+      "parameters": { "Value": { "type": "Float", "min": -20.0, "max": 20.0, "default": 1.0 } }
+    },
+    "DeckA Speed Master Offset": {
+      "menu": "Deck A",
+      "callback": "deckASpeedMasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA Submaster": {
+      "menu": "Deck A",
+      "callback": "deckASubmaster",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckA Submaster Offset": {
+      "menu": "Deck A",
+      "callback": "deckASubmasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA Filter": {
+      "menu": "Deck A",
+      "callback": "deckAFilter",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 102, "default": 0 } }
+    },
+    "DeckA Filter Up":    { "menu": "Deck A", "callback": "deckAFilterUp" },
+    "DeckA Filter Down":  { "menu": "Deck A", "callback": "deckAFilterDown" },
+    "DeckA Filter Color": { "menu": "Deck A", "callback": "deckAFilterColor" },
+    "DeckA Mode": {
+      "menu": "Deck A",
+      "callback": "deckAMode",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 3, "default": 0 } }
+    },
+    "DeckA Mode Up":   { "menu": "Deck A", "callback": "deckAModeUp" },
+    "DeckA Mode Down": { "menu": "Deck A", "callback": "deckAModeDown" },
+    "DeckA Global ID": {
+      "menu": "Deck A",
+      "callback": "deckAGlobalId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "DeckA Global ID Up":   { "menu": "Deck A", "callback": "deckAGlobalIdUp" },
+    "DeckA Global ID Down": { "menu": "Deck A", "callback": "deckAGlobalIdDown" },
+    "DeckA Red": {
+      "menu": "Deck A",
+      "callback": "deckARed",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckA Red Offset": {
+      "menu": "Deck A",
+      "callback": "deckARedOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA Green": {
+      "menu": "Deck A",
+      "callback": "deckAGreen",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckA Green Offset": {
+      "menu": "Deck A",
+      "callback": "deckAGreenOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA Blue": {
+      "menu": "Deck A",
+      "callback": "deckABlue",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckA Blue Offset": {
+      "menu": "Deck A",
+      "callback": "deckABlueOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA White": {
+      "menu": "Deck A",
+      "callback": "deckAWhite",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckA White Offset": {
+      "menu": "Deck A",
+      "callback": "deckAWhiteOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckA RGB": {
+      "menu": "Deck A",
+      "callback": "deckARgb",
+      "parameters": {
+        "Red":   { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Green": { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Blue":  { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+
+    "DeckB Pause": {
+      "menu": "Deck B",
+      "callback": "deckBPause",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "DeckB Speed Master": {
+      "menu": "Deck B",
+      "callback": "deckBSpeedMaster",
+      "parameters": { "Value": { "type": "Float", "min": -20.0, "max": 20.0, "default": 1.0 } }
+    },
+    "DeckB Speed Master Offset": {
+      "menu": "Deck B",
+      "callback": "deckBSpeedMasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB Submaster": {
+      "menu": "Deck B",
+      "callback": "deckBSubmaster",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckB Submaster Offset": {
+      "menu": "Deck B",
+      "callback": "deckBSubmasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB Filter": {
+      "menu": "Deck B",
+      "callback": "deckBFilter",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 102, "default": 0 } }
+    },
+    "DeckB Filter Up":    { "menu": "Deck B", "callback": "deckBFilterUp" },
+    "DeckB Filter Down":  { "menu": "Deck B", "callback": "deckBFilterDown" },
+    "DeckB Filter Color": { "menu": "Deck B", "callback": "deckBFilterColor" },
+    "DeckB Mode": {
+      "menu": "Deck B",
+      "callback": "deckBMode",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 3, "default": 0 } }
+    },
+    "DeckB Mode Up":   { "menu": "Deck B", "callback": "deckBModeUp" },
+    "DeckB Mode Down": { "menu": "Deck B", "callback": "deckBModeDown" },
+    "DeckB Global ID": {
+      "menu": "Deck B",
+      "callback": "deckBGlobalId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "DeckB Global ID Up":   { "menu": "Deck B", "callback": "deckBGlobalIdUp" },
+    "DeckB Global ID Down": { "menu": "Deck B", "callback": "deckBGlobalIdDown" },
+    "DeckB Red": {
+      "menu": "Deck B",
+      "callback": "deckBRed",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckB Red Offset": {
+      "menu": "Deck B",
+      "callback": "deckBRedOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB Green": {
+      "menu": "Deck B",
+      "callback": "deckBGreen",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckB Green Offset": {
+      "menu": "Deck B",
+      "callback": "deckBGreenOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB Blue": {
+      "menu": "Deck B",
+      "callback": "deckBBlue",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckB Blue Offset": {
+      "menu": "Deck B",
+      "callback": "deckBBlueOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB White": {
+      "menu": "Deck B",
+      "callback": "deckBWhite",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "DeckB White Offset": {
+      "menu": "Deck B",
+      "callback": "deckBWhiteOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "DeckB RGB": {
+      "menu": "Deck B",
+      "callback": "deckBRgb",
+      "parameters": {
+        "Red":   { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Green": { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Blue":  { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+
+    "Storages Index": {
+      "menu": "Storages",
+      "callback": "storagesIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Storages Index Up":   { "menu": "Storages", "callback": "storagesIndexUp" },
+    "Storages Index Down": { "menu": "Storages", "callback": "storagesIndexDown" },
+    "Storages Places Index": {
+      "menu": "Storages",
+      "callback": "storagesPlacesIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Storages Places Index Up":   { "menu": "Storages", "callback": "storagesPlacesIndexUp" },
+    "Storages Places Index Down": { "menu": "Storages", "callback": "storagesPlacesIndexDown" },
+    "Storages StoragePlace Speed Pitch": {
+      "menu": "Storages",
+      "callback": "storagesSpeedPitch",
+      "parameters": { "Value": { "type": "Float", "min": -10.0, "max": 10.0, "default": 1.0 } }
+    },
+    "Storages StoragePlace Speed Pitch Offset": {
+      "menu": "Storages",
+      "callback": "storagesSpeedPitchOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Storages StoragePlace Submaster": {
+      "menu": "Storages",
+      "callback": "storagesSubmaster",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Storages StoragePlace Submaster Offset": {
+      "menu": "Storages",
+      "callback": "storagesSubmasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Storages StoragePlace Filter": {
+      "menu": "Storages",
+      "callback": "storagesFilter",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 102, "default": 0 } }
+    },
+    "Storages StoragePlace Filter Up":   { "menu": "Storages", "callback": "storagesFilterUp" },
+    "Storages StoragePlace Filter Down": { "menu": "Storages", "callback": "storagesFilterDown" },
+
+    "Chaser Playback State": {
+      "menu": "Chaser",
+      "callback": "chaserPlaybackState",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 2, "default": 0 } }
+    },
+    "Chaser Speed Pitch": {
+      "menu": "Chaser",
+      "callback": "chaserSpeedPitch",
+      "parameters": { "Value": { "type": "Float", "min": -10.0, "max": 10.0, "default": 1.0 } }
+    },
+    "Chaser Speed Pitch Offset": {
+      "menu": "Chaser",
+      "callback": "chaserSpeedPitchOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Chaser Steps Index": {
+      "menu": "Chaser",
+      "callback": "chaserStepsIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Chaser Steps Index Up":   { "menu": "Chaser", "callback": "chaserStepsIndexUp" },
+    "Chaser Steps Index Down": { "menu": "Chaser", "callback": "chaserStepsIndexDown" },
+
+    "Layer Submaster": {
+      "menu": "Layers",
+      "callback": "layerSubmaster",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "Layer Submaster Offset": {
+      "menu": "Layers",
+      "callback": "layerSubmasterOffset",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "Layer Opacity": {
+      "menu": "Layers",
+      "callback": "layerOpacity",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "Layer Opacity Offset": {
+      "menu": "Layers",
+      "callback": "layerOpacityOffset",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "Layer Blind": {
+      "menu": "Layers",
+      "callback": "layerBlind",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Boolean" }
+      }
+    },
+    "Layer Solo": {
+      "menu": "Layers",
+      "callback": "layerSolo",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Boolean" }
+      }
+    },
+    "Layer Filter": {
+      "menu": "Layers",
+      "callback": "layerFilter",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 102, "default": 0 }
+      }
+    },
+    "Layer Filter Up": {
+      "menu": "Layers",
+      "callback": "layerFilterUp",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Layer Filter Down": {
+      "menu": "Layers",
+      "callback": "layerFilterDown",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Layer Mix Mode": {
+      "menu": "Layers",
+      "callback": "layerMixMode",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 21, "default": 0 }
+      }
+    },
+    "Layer Mix Mode Up": {
+      "menu": "Layers",
+      "callback": "layerMixModeUp",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Layer Mix Mode Down": {
+      "menu": "Layers",
+      "callback": "layerMixModeDown",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Layer Chaser Playback State": {
+      "menu": "Layers",
+      "callback": "layerChaserPlaybackState",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 2, "default": 0 }
+      }
+    },
+    "Layer Chaser Speed Pitch": {
+      "menu": "Layers",
+      "callback": "layerChaserSpeedPitch",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "min": -10.0, "max": 10.0, "default": 1.0 }
+      }
+    },
+    "Layer Chaser Speed Pitch Offset": {
+      "menu": "Layers",
+      "callback": "layerChaserSpeedPitchOffset",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "Layer Chaser Steps Index": {
+      "menu": "Layers",
+      "callback": "layerChaserStepsIndex",
+      "parameters": {
+        "Layer Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "default": 0 }
+      }
+    },
+    "Layer Chaser Steps Index Up": {
+      "menu": "Layers",
+      "callback": "layerChaserStepsIndexUp",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Layer Chaser Steps Index Down": {
+      "menu": "Layers",
+      "callback": "layerChaserStepsIndexDown",
+      "parameters": { "Layer Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+
+    "Output Freeze": {
+      "menu": "Output",
+      "callback": "outputFreeze",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "Output Master": {
+      "menu": "Output",
+      "callback": "outputMaster",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Output Master Offset": {
+      "menu": "Output",
+      "callback": "outputMasterOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Output Blackout": {
+      "menu": "Output",
+      "callback": "outputBlackout",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "Output Filter": {
+      "menu": "Output",
+      "callback": "outputFilter",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 102, "default": 0 } }
+    },
+    "Output Filter Up":    { "menu": "Output", "callback": "outputFilterUp" },
+    "Output Filter Down":  { "menu": "Output", "callback": "outputFilterDown" },
+    "Output Filter Color": { "menu": "Output", "callback": "outputFilterColor" },
+    "Output Mode": {
+      "menu": "Output",
+      "callback": "outputMode",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 3, "default": 0 } }
+    },
+    "Output Mode Up":   { "menu": "Output", "callback": "outputModeUp" },
+    "Output Mode Down": { "menu": "Output", "callback": "outputModeDown" },
+    "Output Global ID": {
+      "menu": "Output",
+      "callback": "outputGlobalId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "Output Global ID Up":   { "menu": "Output", "callback": "outputGlobalIdUp" },
+    "Output Global ID Down": { "menu": "Output", "callback": "outputGlobalIdDown" },
+    "Output Red": {
+      "menu": "Output",
+      "callback": "outputRed",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Output Red Offset": {
+      "menu": "Output",
+      "callback": "outputRedOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Output Green": {
+      "menu": "Output",
+      "callback": "outputGreen",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Output Green Offset": {
+      "menu": "Output",
+      "callback": "outputGreenOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Output Blue": {
+      "menu": "Output",
+      "callback": "outputBlue",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Output Blue Offset": {
+      "menu": "Output",
+      "callback": "outputBlueOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Output White": {
+      "menu": "Output",
+      "callback": "outputWhite",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Output White Offset": {
+      "menu": "Output",
+      "callback": "outputWhiteOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Output RGB": {
+      "menu": "Output",
+      "callback": "outputRgb",
+      "parameters": {
+        "Red":   { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Green": { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Blue":  { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+
+    "StrobeColor Mode": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorMode",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 2, "default": 0 } }
+    },
+    "StrobeColor Mode Up":   { "menu": "StrobeColor", "callback": "strobeColorModeUp" },
+    "StrobeColor Mode Down": { "menu": "StrobeColor", "callback": "strobeColorModeDown" },
+    "StrobeColor Global ID": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorGlobalId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "StrobeColor Global ID Up":   { "menu": "StrobeColor", "callback": "strobeColorGlobalIdUp" },
+    "StrobeColor Global ID Down": { "menu": "StrobeColor", "callback": "strobeColorGlobalIdDown" },
+    "StrobeColor Red": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorRed",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "StrobeColor Red Offset": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorRedOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "StrobeColor Green": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorGreen",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "StrobeColor Green Offset": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorGreenOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "StrobeColor Blue": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorBlue",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "StrobeColor Blue Offset": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorBlueOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "StrobeColor White": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorWhite",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "StrobeColor White Offset": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorWhiteOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "StrobeColor RGB": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorRgb",
+      "parameters": {
+        "Red":   { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Green": { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Blue":  { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "StrobeColor Strobe": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorStrobe",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 9, "default": 0 } }
+    },
+    "StrobeColor Strobe Offset": {
+      "menu": "StrobeColor",
+      "callback": "strobeColorStrobeOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+
+    "Fade Time": {
+      "menu": "Fade",
+      "callback": "fadeTime",
+      "parameters": { "Value": { "type": "Float", "min": 0.0, "max": 3600.0, "default": 0.0 } }
+    },
+    "Fade Time Offset": {
+      "menu": "Fade",
+      "callback": "fadeTimeOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Fade Type": {
+      "menu": "Fade",
+      "callback": "fadeType",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 14, "default": 0 } }
+    },
+    "Fade Type Up":   { "menu": "Fade", "callback": "fadeTypeUp" },
+    "Fade Type Down": { "menu": "Fade", "callback": "fadeTypeDown" },
+    "Fade Value": {
+      "menu": "Fade",
+      "callback": "fadeValue",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Fade Value Offset": {
+      "menu": "Fade",
+      "callback": "fadeValueOffset",
+      "parameters": { "Value": { "type": "Float", "default": 0 } }
+    },
+    "Fade Automatic": { "menu": "Fade", "callback": "fadeAutomatic" },
+    "Fade To Left":   { "menu": "Fade", "callback": "fadeToLeft" },
+    "Fade To Right":  { "menu": "Fade", "callback": "fadeToRight" },
+    "Fade To Center": { "menu": "Fade", "callback": "fadeToCenter" },
+
+    "ColorKit Global Color Red": {
+      "menu": "ColorKit",
+      "callback": "colorKitRed",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "ColorKit Global Color Red Offset": {
+      "menu": "ColorKit",
+      "callback": "colorKitRedOffset",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "ColorKit Global Color Green": {
+      "menu": "ColorKit",
+      "callback": "colorKitGreen",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "ColorKit Global Color Green Offset": {
+      "menu": "ColorKit",
+      "callback": "colorKitGreenOffset",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "ColorKit Global Color Blue": {
+      "menu": "ColorKit",
+      "callback": "colorKitBlue",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "ColorKit Global Color Blue Offset": {
+      "menu": "ColorKit",
+      "callback": "colorKitBlueOffset",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "ColorKit Global Color White": {
+      "menu": "ColorKit",
+      "callback": "colorKitWhite",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "ColorKit Global Color White Offset": {
+      "menu": "ColorKit",
+      "callback": "colorKitWhiteOffset",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "ColorKit Global Color Alpha": {
+      "menu": "ColorKit",
+      "callback": "colorKitAlpha",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "ColorKit Global Color Alpha Offset": {
+      "menu": "ColorKit",
+      "callback": "colorKitAlphaOffset",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "ColorKit Global Color RGB": {
+      "menu": "ColorKit",
+      "callback": "colorKitRgb",
+      "parameters": {
+        "Color Index": { "type": "Integer", "min": 1, "default": 1 },
+        "Red":         { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Green":       { "type": "Integer", "min": 0, "max": 255, "default": 0 },
+        "Blue":        { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+
+    "GroupControl Defaults": { "menu": "GroupControl", "callback": "groupControlDefaults" },
+    "Group Value": {
+      "menu": "GroupControl",
+      "callback": "groupValue",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "Group Value Offset": {
+      "menu": "GroupControl",
+      "callback": "groupValueOffset",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "Group Flash": {
+      "menu": "GroupControl",
+      "callback": "groupFlash",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Boolean" }
+      }
+    },
+    "Group Chaser Playback State": {
+      "menu": "GroupControl",
+      "callback": "groupChaserPlaybackState",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 2, "default": 0 }
+      }
+    },
+    "Group Chaser Speed Pitch": {
+      "menu": "GroupControl",
+      "callback": "groupChaserSpeedPitch",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "min": -10.0, "max": 10.0, "default": 1.0 }
+      }
+    },
+    "Group Chaser Speed Pitch Offset": {
+      "menu": "GroupControl",
+      "callback": "groupChaserSpeedPitchOffset",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+    "Group Chaser Steps Index": {
+      "menu": "GroupControl",
+      "callback": "groupChaserStepsIndex",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "default": 0 }
+      }
+    },
+    "Group Chaser Steps Index Up": {
+      "menu": "GroupControl",
+      "callback": "groupChaserStepsIndexUp",
+      "parameters": { "Group Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Group Chaser Steps Index Down": {
+      "menu": "GroupControl",
+      "callback": "groupChaserStepsIndexDown",
+      "parameters": { "Group Index": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "Group Fade Time": {
+      "menu": "GroupControl",
+      "callback": "groupFadeTime",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "min": 0.0, "max": 3600.0, "default": 0.0 }
+      }
+    },
+    "Group Fade Time Offset": {
+      "menu": "GroupControl",
+      "callback": "groupFadeTimeOffset",
+      "parameters": {
+        "Group Index": { "type": "Integer", "min": 0, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+
+    "Presets Index": {
+      "menu": "Presets",
+      "callback": "presetsIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 255, "default": 0 } }
+    },
+    "Presets Index Up":   { "menu": "Presets", "callback": "presetsIndexUp" },
+    "Presets Index Down": { "menu": "Presets", "callback": "presetsIndexDown" },
+
+    "DMX Fader State": {
+      "menu": "DmxFaderTool",
+      "callback": "dmxFaderState",
+      "parameters": {
+        "Fader Index": { "type": "Integer", "min": 0, "max": 23, "default": 0 },
+        "Value":       { "type": "Boolean" }
+      }
+    },
+    "DMX Fader Value": {
+      "menu": "DmxFaderTool",
+      "callback": "dmxFaderValue",
+      "parameters": {
+        "Fader Index": { "type": "Integer", "min": 0, "max": 23, "default": 0 },
+        "Value":       { "type": "Integer", "min": 0, "max": 255, "default": 0 }
+      }
+    },
+    "DMX Fader Value Offset": {
+      "menu": "DmxFaderTool",
+      "callback": "dmxFaderValueOffset",
+      "parameters": {
+        "Fader Index": { "type": "Integer", "min": 0, "max": 23, "default": 0 },
+        "Value":       { "type": "Float", "default": 0 }
+      }
+    },
+
+    "CueLists Index": {
+      "menu": "CueLists",
+      "callback": "cueListsIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "CueLists Index Up":   { "menu": "CueLists", "callback": "cueListsIndexUp" },
+    "CueLists Index Down": { "menu": "CueLists", "callback": "cueListsIndexDown" },
+    "CueLists Playback State": {
+      "menu": "CueLists",
+      "callback": "cueListsPlaybackState",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 2, "default": 0 } }
+    },
+    "CueLists Playback Mode": {
+      "menu": "CueLists",
+      "callback": "cueListsPlaybackMode",
+      "parameters": { "Value": { "type": "Boolean" } }
+    },
+    "CueLists TimeCode Source": {
+      "menu": "CueLists",
+      "callback": "cueListsTimeCodeSource",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 4, "default": 0 } }
+    },
+    "CueLists TimeCode Source Up":   { "menu": "CueLists", "callback": "cueListsTimeCodeSourceUp" },
+    "CueLists TimeCode Source Down": { "menu": "CueLists", "callback": "cueListsTimeCodeSourceDown" },
+    "CueLists Cues Index": {
+      "menu": "CueLists",
+      "callback": "cueListsCuesIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "CueLists Cues Index Up":   { "menu": "CueLists", "callback": "cueListsCuesIndexUp" },
+    "CueLists Cues Index Down": { "menu": "CueLists", "callback": "cueListsCuesIndexDown" },
+    "CueLists Timelines Index": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "CueLists Timelines Index Up":   { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesIndexUp" },
+    "CueLists Timelines Index Down": { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesIndexDown" },
+    "CueLists Timelines Playback State": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesPlaybackState",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 2, "default": 0 } }
+    },
+    "CueLists Timelines Audio Segments Index": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesAudioSegmentsIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "CueLists Timelines Audio Segments Index Up":   { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesAudioSegmentsIndexUp" },
+    "CueLists Timelines Audio Segments Index Down": { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesAudioSegmentsIndexDown" },
+    "CueLists Timelines Cue Segments Index": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesCurrentSegmentsIndex",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "default": 0 } }
+    },
+    "CueLists Timelines Cue Segments Index Up":   { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesCurrentSegmentsIndexUp" },
+    "CueLists Timelines Cue Segments Index Down": { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesCurrentSegmentsIndexDown" },
+    "CueLists Timelines Markers ID": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesMarkersId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "CueLists Timelines Markers ID Up":   { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesMarkersIdUp" },
+    "CueLists Timelines Markers ID Down": { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesMarkersIdDown" },
+    "CueLists Timelines Setup Registers ID": {
+      "menu": "CueLists/Timelines",
+      "callback": "cueListsTimelinesSetupRegistersId",
+      "parameters": { "Value": { "type": "Integer", "min": 1, "default": 1 } }
+    },
+    "CueLists Timelines Setup Registers ID Up":   { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesSetupRegistersIdUp" },
+    "CueLists Timelines Setup Registers ID Down": { "menu": "CueLists/Timelines", "callback": "cueListsTimelinesSetupRegistersIdDown" },
+
+    "Trigger Port Position And Value": {
+      "menu": "Trigger",
+      "callback": "triggerPortPositionAndValue",
+      "parameters": {
+        "Port Index":        { "type": "Integer", "min": 0, "max": 63, "default": 0 },
+        "Position":         { "type": "Float", "min": 0.0, "max": 1.0, "default": 0.0 },
+        "Value":            { "type": "Float", "min": 0.0, "max": 1.0, "default": 0.0 },
+        "Num Segments":     { "type": "Integer", "min": 0, "default": 0 }
+      }
+    },
+
+    "Main View": {
+      "menu": "Main",
+      "callback": "mainView",
+      "parameters": { "Value": { "type": "Integer", "min": 0, "max": 5, "default": 0 } }
+    },
+    "Main View Up":    { "menu": "Main", "callback": "mainViewUp" },
+    "Main View Down":  { "menu": "Main", "callback": "mainViewDown" },
+    "Main Feedback All": { "menu": "Main", "callback": "mainFeedbackAll" }
   }
 }
