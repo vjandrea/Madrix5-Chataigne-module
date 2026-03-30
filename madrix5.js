@@ -56,6 +56,12 @@ function deckABlueOffset(val)         { sendDeck("DeckA", "Blue/Offset",        
 function deckAWhite(val)              { sendDeck("DeckA", "White",              val); }
 function deckAWhiteOffset(val)        { sendDeck("DeckA", "White/Offset",       val); }
 function deckARgb(r, g, b)            { local.send("/DeckA/Rgb",                r, g, b); }
+function deckAStoragesIndex(val)      { sendDeck("DeckA", "Storages/Index",       val); }
+function deckAStoragesIndexUp()       { sendDeck("DeckA", "Storages/Index/Up"); }
+function deckAStoragesIndexDown()     { sendDeck("DeckA", "Storages/Index/Down"); }
+function deckAPlacesIndex(val)        { sendDeck("DeckA", "Places/Index",         val); }
+function deckAPlacesIndexUp()         { sendDeck("DeckA", "Places/Index/Up"); }
+function deckAPlacesIndexDown()       { sendDeck("DeckA", "Places/Index/Down"); }
 
 // ── Deck B ────────────────────────────────────────────────────────────────────
 
@@ -83,6 +89,12 @@ function deckBBlueOffset(val)         { sendDeck("DeckB", "Blue/Offset",        
 function deckBWhite(val)              { sendDeck("DeckB", "White",              val); }
 function deckBWhiteOffset(val)        { sendDeck("DeckB", "White/Offset",       val); }
 function deckBRgb(r, g, b)            { local.send("/DeckB/Rgb",                r, g, b); }
+function deckBStoragesIndex(val)      { sendDeck("DeckB", "Storages/Index",       val); }
+function deckBStoragesIndexUp()       { sendDeck("DeckB", "Storages/Index/Up"); }
+function deckBStoragesIndexDown()     { sendDeck("DeckB", "Storages/Index/Down"); }
+function deckBPlacesIndex(val)        { sendDeck("DeckB", "Places/Index",         val); }
+function deckBPlacesIndexUp()         { sendDeck("DeckB", "Places/Index/Up"); }
+function deckBPlacesIndexDown()       { sendDeck("DeckB", "Places/Index/Down"); }
 
 // ── Storages ──────────────────────────────────────────────────────────────────
 
