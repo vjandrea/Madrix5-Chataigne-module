@@ -172,13 +172,9 @@
       "menu": "Deck A/Filter",
       "callback": "deckAFilterDown"
     },
-    "Deck A Filter Color": {
-      "menu": "Deck A/Filter",
-      "callback": "deckAFilterColor"
-    },
-    "Deck A Mode": {
+    "Deck A FilterColor Mode": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAMode",
+      "callback": "deckAFilterColorMode",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -188,17 +184,17 @@
         }
       }
     },
-    "Deck A Mode Up": {
+    "Deck A FilterColor Mode Up": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAModeUp"
+      "callback": "deckAFilterColorModeUp"
     },
-    "Deck A Mode Down": {
+    "Deck A FilterColor Mode Down": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAModeDown"
+      "callback": "deckAFilterColorModeDown"
     },
-    "Deck A Global ID": {
+    "Deck A FilterColor Global ID": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAGlobalId",
+      "callback": "deckAFilterColorGlobalId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -207,17 +203,17 @@
         }
       }
     },
-    "Deck A Global ID Up": {
+    "Deck A FilterColor Global ID Up": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAGlobalIdUp"
+      "callback": "deckAFilterColorGlobalIdUp"
     },
-    "Deck A Global ID Down": {
+    "Deck A FilterColor Global ID Down": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAGlobalIdDown"
+      "callback": "deckAFilterColorGlobalIdDown"
     },
-    "Deck A Red": {
+    "Deck A FilterColor Red": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckARed",
+      "callback": "deckAFilterColorRed",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -227,9 +223,9 @@
         }
       }
     },
-    "Deck A Red Offset": {
+    "Deck A FilterColor Red Offset": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckARedOffset",
+      "callback": "deckAFilterColorRedOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -237,9 +233,9 @@
         }
       }
     },
-    "Deck A Green": {
+    "Deck A FilterColor Green": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAGreen",
+      "callback": "deckAFilterColorGreen",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -249,9 +245,9 @@
         }
       }
     },
-    "Deck A Green Offset": {
+    "Deck A FilterColor Green Offset": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAGreenOffset",
+      "callback": "deckAFilterColorGreenOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -259,9 +255,9 @@
         }
       }
     },
-    "Deck A Blue": {
+    "Deck A FilterColor Blue": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckABlue",
+      "callback": "deckAFilterColorBlue",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -271,9 +267,9 @@
         }
       }
     },
-    "Deck A Blue Offset": {
+    "Deck A FilterColor Blue Offset": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckABlueOffset",
+      "callback": "deckAFilterColorBlueOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -281,9 +277,9 @@
         }
       }
     },
-    "Deck A White": {
+    "Deck A FilterColor White": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAWhite",
+      "callback": "deckAFilterColorWhite",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -293,9 +289,9 @@
         }
       }
     },
-    "Deck A White Offset": {
+    "Deck A FilterColor White Offset": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckAWhiteOffset",
+      "callback": "deckAFilterColorWhiteOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -303,9 +299,9 @@
         }
       }
     },
-    "Deck A RGB": {
+    "Deck A FilterColor RGB": {
       "menu": "Deck A/FilterColor",
-      "callback": "deckARgb",
+      "callback": "deckAFilterColorRgb",
       "parameters": {
         "Red": {
           "type": "Integer",
@@ -367,6 +363,385 @@
       "menu": "Deck A/Places",
       "callback": "deckAPlacesIndexDown"
     },
+    "Deck A StoragePlace Speed Pitch": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStoragePlaceSpeedPitch",
+      "parameters": {
+        "Value": {
+          "type": "Float",
+          "min": -10.0,
+          "max": 10.0,
+          "default": 1.0
+        }
+      }
+    },
+    "Deck A StoragePlace Speed Pitch Offset": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStoragePlaceSpeedPitchOffset",
+      "parameters": {
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Submaster": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStoragePlaceSubmaster",
+      "parameters": {
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 255,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Submaster Offset": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStoragePlaceSubmasterOffset",
+      "parameters": {
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Filter": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStorageFilter",
+      "parameters": {
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 102,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Filter Up": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStorageFilterUp"
+    },
+    "Deck A StoragePlace Filter Down": {
+      "menu": "Deck A/StoragePlace",
+      "callback": "deckAStorageFilterDown"
+    },
+    "Deck A StoragePlace Chaser Playback State": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserPlaybackState",
+      "parameters": {
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 2,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Chaser Speed Pitch": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserSpeedPitch",
+      "parameters": {
+        "Value": {
+          "type": "Float",
+          "min": -10.0,
+          "max": 10.0,
+          "default": 1.0
+        }
+      }
+    },
+    "Deck A StoragePlace Chaser Speed Pitch Offset": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserSpeedPitchOffset",
+      "parameters": {
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Chaser Steps Index": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserStepsIndex",
+      "parameters": {
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Chaser Steps Index Up": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserStepsIndexUp"
+    },
+    "Deck A StoragePlace Chaser Steps Index Down": {
+      "menu": "Deck A/StoragePlace/Chaser",
+      "callback": "deckAStoragePlaceChaserStepsIndexDown"
+    },
+    "Deck A StoragePlace Layer Submaster": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersSubmaster",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 255,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Submaster Offset": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersSubmasterOffset",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Opacity": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersOpacity",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 255,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Opacity Offset": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersOpacityOffset",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Blind": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersBlind",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Boolean"
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Solo": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersSolo",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Boolean"
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Filter": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersFilter",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 102,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Filter Up": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersFilterUp",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Filter Down": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersFilterDown",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Mix Mode": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersMixMode",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 21,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Mix Mode Up": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersMixModeUp",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Mix Mode Down": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersMixModeDown",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Playback State": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserPlaybackState",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "max": 2,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Speed Pitch": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserSpeedPitch",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Float",
+          "min": -10.0,
+          "max": 10.0,
+          "default": 1.0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Speed Pitch Offset": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserSpeedPitchOffset",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Float",
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Steps Index": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserStepsIndex",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        },
+        "Value": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Steps Index Up": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserStepsIndexUp",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+    "Deck A StoragePlace Layer Chaser Steps Index Down": {
+      "menu": "Deck A/StoragePlace/Layers",
+      "callback": "deckAStoragePlaceLayersChaserStepsIndexDown",
+      "parameters": {
+        "Layer Index": {
+          "type": "Integer",
+          "min": 0,
+          "default": 0
+        }
+      }
+    },
+
+
+
+
+
 
     "Deck B Pause": {
       "menu": "Deck B",
@@ -441,13 +816,9 @@
       "menu": "Deck B",
       "callback": "deckBFilterDown"
     },
-    "Deck B Filter Color": {
+    "Deck B FilterColor Mode": {
       "menu": "Deck B",
-      "callback": "deckBFilterColor"
-    },
-    "Deck B Mode": {
-      "menu": "Deck B",
-      "callback": "deckBMode",
+      "callback": "deckBFilterColorMode",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -457,17 +828,17 @@
         }
       }
     },
-    "Deck B Mode Up": {
+    "Deck B FilterColor Mode Up": {
       "menu": "Deck B",
-      "callback": "deckBModeUp"
+      "callback": "deckBFilterColorModeUp"
     },
-    "Deck B Mode Down": {
+    "Deck B FilterColor Mode Down": {
       "menu": "Deck B",
-      "callback": "deckBModeDown"
+      "callback": "deckBFilterColorModeDown"
     },
-    "Deck B Global ID": {
+    "Deck B Filter ColorGlobal ID": {
       "menu": "Deck B",
-      "callback": "deckBGlobalId",
+      "callback": "deckBFilterColorGlobalId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -476,17 +847,17 @@
         }
       }
     },
-    "Deck B Global ID Up": {
+    "Deck B FilterColor Global ID Up": {
       "menu": "Deck B",
-      "callback": "deckBGlobalIdUp"
+      "callback": "deckBFilterColorGlobalIdUp"
     },
-    "Deck B Global ID Down": {
+    "Deck B FilterColor Global ID Down": {
       "menu": "Deck B",
-      "callback": "deckBGlobalIdDown"
+      "callback": "deckBFilterColorGlobalIdDown"
     },
-    "Deck B Red": {
+    "Deck B FilterColor Red": {
       "menu": "Deck B",
-      "callback": "deckBRed",
+      "callback": "deckBFilterColorRed",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -496,9 +867,9 @@
         }
       }
     },
-    "Deck B Red Offset": {
+    "Deck B FilterColor Red Offset": {
       "menu": "Deck B",
-      "callback": "deckBRedOffset",
+      "callback": "deckBFilterColorRedOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -506,9 +877,9 @@
         }
       }
     },
-    "Deck B Green": {
+    "Deck B FilterColor Green": {
       "menu": "Deck B",
-      "callback": "deckBGreen",
+      "callback": "deckBFilterColorGreen",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -518,9 +889,9 @@
         }
       }
     },
-    "Deck B Green Offset": {
+    "Deck B FilterColor Green Offset": {
       "menu": "Deck B",
-      "callback": "deckBGreenOffset",
+      "callback": "deckBFilterColorGreenOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -528,9 +899,9 @@
         }
       }
     },
-    "Deck B Blue": {
+    "Deck B FilterColor Blue": {
       "menu": "Deck B",
-      "callback": "deckBBlue",
+      "callback": "deckBFilterColorBlue",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -540,9 +911,9 @@
         }
       }
     },
-    "Deck B Blue Offset": {
+    "Deck B FilterColor Blue Offset": {
       "menu": "Deck B",
-      "callback": "deckBBlueOffset",
+      "callback": "deckBFilterColorBlueOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -550,9 +921,9 @@
         }
       }
     },
-    "Deck B White": {
+    "Deck B FilterColor White": {
       "menu": "Deck B",
-      "callback": "deckBWhite",
+      "callback": "deckBFilterColorWhite",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -562,9 +933,9 @@
         }
       }
     },
-    "Deck B White Offset": {
+    "Deck B FilterColor White Offset": {
       "menu": "Deck B",
-      "callback": "deckBWhiteOffset",
+      "callback": "deckBFilterColorWhiteOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -572,9 +943,9 @@
         }
       }
     },
-    "Deck B RGB": {
+    "Deck B FilterColor RGB": {
       "menu": "Deck B",
-      "callback": "deckBRgb",
+      "callback": "deckBFilterColorRgb",
       "parameters": {
         "Red": {
           "type": "Integer",
@@ -636,50 +1007,9 @@
       "menu": "Deck B/Places",
       "callback": "deckBPlacesIndexDown"
     },
-
-    "Storages Index": {
-      "menu": "Storages",
-      "callback": "storagesIndex",
-      "parameters": {
-        "Value": {
-          "type": "Integer",
-          "min": 0,
-          "max": 255,
-          "default": 0
-        }
-      }
-    },
-    "Storages Index Up": {
-      "menu": "Storages",
-      "callback": "storagesIndexUp"
-    },
-    "Storages Index Down": {
-      "menu": "Storages",
-      "callback": "storagesIndexDown"
-    },
-    "Storages Places Index": {
-      "menu": "Storages",
-      "callback": "storagesPlacesIndex",
-      "parameters": {
-        "Value": {
-          "type": "Integer",
-          "min": 0,
-          "max": 255,
-          "default": 0
-        }
-      }
-    },
-    "Storages Places Index Up": {
-      "menu": "Storages",
-      "callback": "storagesPlacesIndexUp"
-    },
-    "Storages Places Index Down": {
-      "menu": "Storages",
-      "callback": "storagesPlacesIndexDown"
-    },
-    "Storages StoragePlace Speed Pitch": {
-      "menu": "Storages",
-      "callback": "storagesSpeedPitch",
+    "Deck B StoragePlace Speed Pitch": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStoragePlaceSpeedPitch",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -689,9 +1019,9 @@
         }
       }
     },
-    "Storages StoragePlace Speed Pitch Offset": {
-      "menu": "Storages",
-      "callback": "storagesSpeedPitchOffset",
+    "Deck B StoragePlace Speed Pitch Offset": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStoragePlaceSpeedPitchOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -699,9 +1029,9 @@
         }
       }
     },
-    "Storages StoragePlace Submaster": {
-      "menu": "Storages",
-      "callback": "storagesSubmaster",
+    "Deck B StoragePlace Submaster": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStoragePlaceSubmaster",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -711,9 +1041,9 @@
         }
       }
     },
-    "Storages StoragePlace Submaster Offset": {
-      "menu": "Storages",
-      "callback": "storagesSubmasterOffset",
+    "Deck B StoragePlace Submaster Offset": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStoragePlaceSubmasterOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -721,9 +1051,9 @@
         }
       }
     },
-    "Storages StoragePlace Filter": {
-      "menu": "Storages",
-      "callback": "storagesFilter",
+    "Deck B StoragePlace Filter": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStorageFilter",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -733,17 +1063,17 @@
         }
       }
     },
-    "Storages StoragePlace Filter Up": {
-      "menu": "Storages",
-      "callback": "storagesFilterUp"
+    "Deck B StoragePlace Filter Up": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStorageFilterUp"
     },
-    "Storages StoragePlace Filter Down": {
-      "menu": "Storages",
-      "callback": "storagesFilterDown"
+    "Deck B StoragePlace Filter Down": {
+      "menu": "Deck B/StoragePlace",
+      "callback": "deckBStorageFilterDown"
     },
-    "Chaser Playback State": {
-      "menu": "Chaser",
-      "callback": "chaserPlaybackState",
+    "Deck B StoragePlace Chaser Playback State": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserPlaybackState",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -753,9 +1083,9 @@
         }
       }
     },
-    "Chaser Speed Pitch": {
-      "menu": "Chaser",
-      "callback": "chaserSpeedPitch",
+    "Deck B StoragePlace Chaser Speed Pitch": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserSpeedPitch",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -765,9 +1095,9 @@
         }
       }
     },
-    "Chaser Speed Pitch Offset": {
-      "menu": "Chaser",
-      "callback": "chaserSpeedPitchOffset",
+    "Deck B StoragePlace Chaser Speed Pitch Offset": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserSpeedPitchOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -775,9 +1105,9 @@
         }
       }
     },
-    "Chaser Steps Index": {
-      "menu": "Chaser",
-      "callback": "chaserStepsIndex",
+    "Deck B StoragePlace Chaser Steps Index": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserStepsIndex",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -786,17 +1116,17 @@
         }
       }
     },
-    "Chaser Steps Index Up": {
-      "menu": "Chaser",
-      "callback": "chaserStepsIndexUp"
+    "Deck B StoragePlace Chaser Steps Index Up": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserStepsIndexUp"
     },
-    "Chaser Steps Index Down": {
-      "menu": "Chaser",
-      "callback": "chaserStepsIndexDown"
+    "Deck B StoragePlace Chaser Steps Index Down": {
+      "menu": "Deck B/StoragePlace/Chaser",
+      "callback": "deckBStoragePlaceChaserStepsIndexDown"
     },
-    "Layer Submaster": {
-      "menu": "Layers",
-      "callback": "layerSubmaster",
+    "Deck B StoragePlace Layer Submaster": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersSubmaster",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -811,9 +1141,9 @@
         }
       }
     },
-    "Layer Submaster Offset": {
-      "menu": "Layers",
-      "callback": "layerSubmasterOffset",
+    "Deck B StoragePlace Layer Submaster Offset": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersSubmasterOffset",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -826,9 +1156,9 @@
         }
       }
     },
-    "Layer Opacity": {
-      "menu": "Layers",
-      "callback": "layerOpacity",
+    "Deck B StoragePlace Layer Opacity": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersOpacity",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -843,9 +1173,9 @@
         }
       }
     },
-    "Layer Opacity Offset": {
-      "menu": "Layers",
-      "callback": "layerOpacityOffset",
+    "Deck B StoragePlace Layer Opacity Offset": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersOpacityOffset",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -858,9 +1188,9 @@
         }
       }
     },
-    "Layer Blind": {
-      "menu": "Layers",
-      "callback": "layerBlind",
+    "Deck B StoragePlace Layer Blind": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersBlind",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -872,9 +1202,9 @@
         }
       }
     },
-    "Layer Solo": {
-      "menu": "Layers",
-      "callback": "layerSolo",
+    "Deck B StoragePlace Layer Solo": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersSolo",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -886,9 +1216,9 @@
         }
       }
     },
-    "Layer Filter": {
-      "menu": "Layers",
-      "callback": "layerFilter",
+    "Deck B StoragePlace Layer Filter": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersFilter",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -903,9 +1233,9 @@
         }
       }
     },
-    "Layer Filter Up": {
-      "menu": "Layers",
-      "callback": "layerFilterUp",
+    "Deck B StoragePlace Layer Filter Up": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersFilterUp",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -914,9 +1244,9 @@
         }
       }
     },
-    "Layer Filter Down": {
-      "menu": "Layers",
-      "callback": "layerFilterDown",
+    "Deck B StoragePlace Layer Filter Down": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersFilterDown",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -925,9 +1255,9 @@
         }
       }
     },
-    "Layer Mix Mode": {
-      "menu": "Layers",
-      "callback": "layerMixMode",
+    "Deck B StoragePlace Layer Mix Mode": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersMixMode",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -942,9 +1272,9 @@
         }
       }
     },
-    "Layer Mix Mode Up": {
-      "menu": "Layers",
-      "callback": "layerMixModeUp",
+    "Deck B StoragePlace Layer Mix Mode Up": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersMixModeUp",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -953,9 +1283,9 @@
         }
       }
     },
-    "Layer Mix Mode Down": {
-      "menu": "Layers",
-      "callback": "layerMixModeDown",
+    "Deck B StoragePlace Layer Mix Mode Down": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersMixModeDown",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -964,9 +1294,9 @@
         }
       }
     },
-    "Layer Chaser Playback State": {
-      "menu": "Layers",
-      "callback": "layerChaserPlaybackState",
+    "Deck B StoragePlace Layer Chaser Playback State": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserPlaybackState",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -981,9 +1311,9 @@
         }
       }
     },
-    "Layer Chaser Speed Pitch": {
-      "menu": "Layers",
-      "callback": "layerChaserSpeedPitch",
+    "Deck B StoragePlace Layer Chaser Speed Pitch": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserSpeedPitch",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -998,9 +1328,9 @@
         }
       }
     },
-    "Layer Chaser Speed Pitch Offset": {
-      "menu": "Layers",
-      "callback": "layerChaserSpeedPitchOffset",
+    "Deck B StoragePlace Layer Chaser Speed Pitch Offset": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserSpeedPitchOffset",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -1013,9 +1343,9 @@
         }
       }
     },
-    "Layer Chaser Steps Index": {
-      "menu": "Layers",
-      "callback": "layerChaserStepsIndex",
+    "Deck B StoragePlace Layer Chaser Steps Index": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserStepsIndex",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -1029,9 +1359,9 @@
         }
       }
     },
-    "Layer Chaser Steps Index Up": {
-      "menu": "Layers",
-      "callback": "layerChaserStepsIndexUp",
+    "Deck B StoragePlace Layer Chaser Steps Index Up": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserStepsIndexUp",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -1040,9 +1370,9 @@
         }
       }
     },
-    "Layer Chaser Steps Index Down": {
-      "menu": "Layers",
-      "callback": "layerChaserStepsIndexDown",
+    "Deck B StoragePlace Layer Chaser Steps Index Down": {
+      "menu": "Deck B/StoragePlace/Layers",
+      "callback": "deckBStoragePlaceLayersChaserStepsIndexDown",
       "parameters": {
         "Layer Index": {
           "type": "Integer",
@@ -1051,6 +1381,7 @@
         }
       }
     },
+
     "Output Freeze": {
       "menu": "Output",
       "callback": "outputFreeze",
@@ -1266,9 +1597,9 @@
         }
       }
     },
-    "StrobeColor Mode": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorMode",
+    "Output StrobeColor Mode": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorMode",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1278,17 +1609,17 @@
         }
       }
     },
-    "StrobeColor Mode Up": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorModeUp"
+    "Output StrobeColor Mode Up": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorModeUp"
     },
-    "StrobeColor Mode Down": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorModeDown"
+    "Output StrobeColor Mode Down": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorModeDown"
     },
-    "StrobeColor Global ID": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorGlobalId",
+    "Output StrobeColor Global ID": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorGlobalId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1297,17 +1628,17 @@
         }
       }
     },
-    "StrobeColor Global ID Up": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorGlobalIdUp"
+    "Output StrobeColor Global ID Up": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorGlobalIdUp"
     },
-    "StrobeColor Global ID Down": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorGlobalIdDown"
+    "Output StrobeColor Global ID Down": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorGlobalIdDown"
     },
-    "StrobeColor Red": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorRed",
+    "Output StrobeColor Red": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorRed",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1317,9 +1648,9 @@
         }
       }
     },
-    "StrobeColor Red Offset": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorRedOffset",
+    "Output StrobeColor Red Offset": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorRedOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1327,9 +1658,9 @@
         }
       }
     },
-    "StrobeColor Green": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorGreen",
+    "Output StrobeColor Green": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorGreen",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1339,9 +1670,9 @@
         }
       }
     },
-    "StrobeColor Green Offset": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorGreenOffset",
+    "Output StrobeColor Green Offset": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorGreenOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1349,9 +1680,9 @@
         }
       }
     },
-    "StrobeColor Blue": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorBlue",
+    "Output StrobeColor Blue": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorBlue",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1361,9 +1692,9 @@
         }
       }
     },
-    "StrobeColor Blue Offset": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorBlueOffset",
+    "Output StrobeColor Blue Offset": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorBlueOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1371,9 +1702,9 @@
         }
       }
     },
-    "StrobeColor White": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorWhite",
+    "Output StrobeColor White": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorWhite",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1383,9 +1714,9 @@
         }
       }
     },
-    "StrobeColor White Offset": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorWhiteOffset",
+    "Output StrobeColor White Offset": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorWhiteOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1393,9 +1724,9 @@
         }
       }
     },
-    "StrobeColor RGB": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorRgb",
+    "Output StrobeColor RGB": {
+      "menu": "Output/StrobeColor",
+      "callback": "outputStrobeColorRgb",
       "parameters": {
         "Red": {
           "type": "Integer",
@@ -1417,9 +1748,9 @@
         }
       }
     },
-    "StrobeColor Strobe": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorStrobe",
+    "Output Strobe": {
+      "menu": "Output/Strobe",
+      "callback": "outputStrobe",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1429,9 +1760,9 @@
         }
       }
     },
-    "StrobeColor Strobe Offset": {
-      "menu": "StrobeColor",
-      "callback": "strobeColorStrobeOffset",
+    "Output Strobe Offset": {
+      "menu": "Output/Strobe",
+      "callback": "outputStrobeOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1712,9 +2043,9 @@
       "menu": "GroupControl",
       "callback": "groupControlDefaults"
     },
-    "Group Value": {
+    "GroupControl Value": {
       "menu": "GroupControl",
-      "callback": "groupValue",
+      "callback": "groupControlGroupsValue",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1729,9 +2060,9 @@
         }
       }
     },
-    "Group Value Offset": {
+    "GroupControl Value Offset": {
       "menu": "GroupControl",
-      "callback": "groupValueOffset",
+      "callback": "groupControlGroupsValueOffset",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1744,9 +2075,9 @@
         }
       }
     },
-    "Group Flash": {
+    "GroupControl Flash": {
       "menu": "GroupControl",
-      "callback": "groupFlash",
+      "callback": "groupControlGroupsFlash",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1758,9 +2089,9 @@
         }
       }
     },
-    "Group Chaser Playback State": {
-      "menu": "GroupControl",
-      "callback": "groupChaserPlaybackState",
+    "GroupControl Chaser Playback State": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserPlaybackState",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1775,9 +2106,9 @@
         }
       }
     },
-    "Group Chaser Speed Pitch": {
-      "menu": "GroupControl",
-      "callback": "groupChaserSpeedPitch",
+    "GroupControl Chaser Speed Pitch": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserSpeedPitch",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1792,9 +2123,9 @@
         }
       }
     },
-    "Group Chaser Speed Pitch Offset": {
-      "menu": "GroupControl",
-      "callback": "groupChaserSpeedPitchOffset",
+    "GroupControl Chaser Speed Pitch Offset": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserSpeedPitchOffset",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1807,9 +2138,9 @@
         }
       }
     },
-    "Group Chaser Steps Index": {
-      "menu": "GroupControl",
-      "callback": "groupChaserStepsIndex",
+    "GroupControl Chaser Steps Index": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserStepsIndex",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1823,9 +2154,9 @@
         }
       }
     },
-    "Group Chaser Steps Index Up": {
-      "menu": "GroupControl",
-      "callback": "groupChaserStepsIndexUp",
+    "GroupControl Chaser Steps Index Up": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserStepsIndexUp",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1834,9 +2165,9 @@
         }
       }
     },
-    "Group Chaser Steps Index Down": {
-      "menu": "GroupControl",
-      "callback": "groupChaserStepsIndexDown",
+    "GroupControl Chaser Steps Index Down": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlChaserStepsIndexDown",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1845,9 +2176,9 @@
         }
       }
     },
-    "Group Fade Time": {
-      "menu": "GroupControl",
-      "callback": "groupFadeTime",
+    "GroupControl Fade Time": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlFadeTime",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1862,9 +2193,9 @@
         }
       }
     },
-    "Group Fade Time Offset": {
-      "menu": "GroupControl",
-      "callback": "groupFadeTimeOffset",
+    "GroupControl Fade Time Offset": {
+      "menu": "GroupControl/Chaser",
+      "callback": "groupControlFadeTimeOffset",
       "parameters": {
         "Group Index": {
           "type": "Integer",
@@ -1877,9 +2208,9 @@
         }
       }
     },
-    "Presets Index": {
-      "menu": "Presets",
-      "callback": "presetsIndex",
+    "GroupControl Presets Index": {
+      "menu": "GroupControl/Presets",
+      "callback": "groupControlPresetsIndex",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1889,17 +2220,17 @@
         }
       }
     },
-    "Presets Index Up": {
-      "menu": "Presets",
-      "callback": "presetsIndexUp"
+    "GroupControl Presets Index Up": {
+      "menu": "GroupControl/Presets",
+      "callback": "groupControlPresetsIndexUp"
     },
-    "Presets Index Down": {
-      "menu": "Presets",
-      "callback": "presetsIndexDown"
+    "GroupControl Presets Index Down": {
+      "menu": "GroupControl/Presets",
+      "callback": "groupControlPresetsIndexDown"
     },
-    "DMX Fader State": {
+    "DMX Fader Tool State": {
       "menu": "DmxFaderTool",
-      "callback": "dmxFaderState",
+      "callback": "dmxFaderToolState",
       "parameters": {
         "Fader Index": {
           "type": "Integer",
@@ -1912,9 +2243,9 @@
         }
       }
     },
-    "DMX Fader Value": {
+    "DMX Fader Tool Value": {
       "menu": "DmxFaderTool",
-      "callback": "dmxFaderValue",
+      "callback": "dmxFaderToolValue",
       "parameters": {
         "Fader Index": {
           "type": "Integer",
@@ -1930,9 +2261,9 @@
         }
       }
     },
-    "DMX Fader Value Offset": {
+    "DMX Fader Tool Value Offset": {
       "menu": "DmxFaderTool",
-      "callback": "dmxFaderValueOffset",
+      "callback": "dmxFaderToolValueOffset",
       "parameters": {
         "Fader Index": {
           "type": "Integer",
@@ -2025,9 +2356,9 @@
       "menu": "CueLists",
       "callback": "cueListsCuesIndexDown"
     },
-    "CueLists Timelines Index": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesIndex",
+    "Timelines Index": {
+      "menu": "Timelines",
+      "callback": "timelinesIndex",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2036,17 +2367,17 @@
         }
       }
     },
-    "CueLists Timelines Index Up": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesIndexUp"
+    "Timelines Index Up": {
+      "menu": "Timelines",
+      "callback": "timelinesIndexUp"
     },
-    "CueLists Timelines Index Down": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesIndexDown"
+    "Timelines Index Down": {
+      "menu": "Timelines",
+      "callback": "timelinesIndexDown"
     },
-    "CueLists Timelines Playback State": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesPlaybackState",
+    "Timelines Playback State": {
+      "menu": "Timelines",
+      "callback": "timelinesPlaybackState",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2056,9 +2387,9 @@
         }
       }
     },
-    "CueLists Timelines Audio Segments Index": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesAudioSegmentsIndex",
+    "Timelines Audio Segments Index": {
+      "menu": "Timelines",
+      "callback": "timelinesAudioSegmentsIndex",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2067,17 +2398,17 @@
         }
       }
     },
-    "CueLists Timelines Audio Segments Index Up": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesAudioSegmentsIndexUp"
+    "Timelines Audio Segments Index Up": {
+      "menu": "Timelines",
+      "callback": "timelinesAudioSegmentsIndexUp"
     },
-    "CueLists Timelines Audio Segments Index Down": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesAudioSegmentsIndexDown"
+    "Timelines Audio Segments Index Down": {
+      "menu": "Timelines",
+      "callback": "timelinesAudioSegmentsIndexDown"
     },
-    "CueLists Timelines Cue Segments Index": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesCurrentSegmentsIndex",
+    "Timelines Cue Segments Index": {
+      "menu": "Timelines",
+      "callback": "timelinesCurrentSegmentsIndex",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2086,17 +2417,17 @@
         }
       }
     },
-    "CueLists Timelines Cue Segments Index Up": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesCurrentSegmentsIndexUp"
+    "Timelines Cue Segments Index Up": {
+      "menu": "Timelines",
+      "callback": "timelinesCurrentSegmentsIndexUp"
     },
-    "CueLists Timelines Cue Segments Index Down": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesCurrentSegmentsIndexDown"
+    "Timelines Cue Segments Index Down": {
+      "menu": "Timelines",
+      "callback": "timelinesCurrentSegmentsIndexDown"
     },
-    "CueLists Timelines Markers ID": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesMarkersId",
+    "Timelines Markers ID": {
+      "menu": "Timelines",
+      "callback": "timelinesMarkersId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2105,17 +2436,17 @@
         }
       }
     },
-    "CueLists Timelines Markers ID Up": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesMarkersIdUp"
+    "Timelines Markers ID Up": {
+      "menu": "Timelines",
+      "callback": "timelinesMarkersIdUp"
     },
-    "CueLists Timelines Markers ID Down": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesMarkersIdDown"
+    "Timelines Markers ID Down": {
+      "menu": "Timelines",
+      "callback": "timelinesMarkersIdDown"
     },
-    "CueLists Timelines Setup Registers ID": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesSetupRegistersId",
+    "Setup Registers ID": {
+      "menu": "Setup Registers",
+      "callback": "setupRegistersId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -2124,13 +2455,13 @@
         }
       }
     },
-    "CueLists Timelines Setup Registers ID Up": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesSetupRegistersIdUp"
+    "Setup Registers ID Up": {
+      "menu": "Setup Registers",
+      "callback": "setupRegistersIdUp"
     },
-    "CueLists Timelines Setup Registers ID Down": {
-      "menu": "CueLists/Timelines",
-      "callback": "cueListsTimelinesSetupRegistersIdDown"
+    "Setup Registers ID Down": {
+      "menu": "Setup Registers",
+      "callback": "setupRegistersIdDown"
     },
     "Trigger Port Position And Value": {
       "menu": "Trigger",

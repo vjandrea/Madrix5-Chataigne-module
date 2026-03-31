@@ -5,7 +5,7 @@ function init() {
 function moduleParameterChanged(param) {}
 function moduleValueChanged(value) {}
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function b(val) { return val ? 1 : 0; }
 
@@ -32,36 +32,87 @@ function audioOutputMute(val)        { local.send("/Audio/Output/Mute",         
 
 // ── Deck A ────────────────────────────────────────────────────────────────────
 
-function deckAPause(val)              { sendDeck("DeckA", "Pause",              b(val)); }
-function deckASpeedMaster(val)        { sendDeck("DeckA", "SpeedMaster",        val); }
-function deckASpeedMasterOffset(val)  { sendDeck("DeckA", "SpeedMaster/Offset", val); }
-function deckASubmaster(val)          { sendDeck("DeckA", "Submaster",          val); }
-function deckASubmasterOffset(val)    { sendDeck("DeckA", "Submaster/Offset",   val); }
-function deckAFilter(val)             { sendDeck("DeckA", "Filter",             val); }
-function deckAFilterUp()              { sendDeck("DeckA", "Filter/Up"); }
-function deckAFilterDown()            { sendDeck("DeckA", "Filter/Down"); }
-function deckAFilterColor()           { sendDeck("DeckA", "FilterColor"); }
-function deckAMode(val)               { sendDeck("DeckA", "Mode",               val); }
-function deckAModeUp()                { sendDeck("DeckA", "Mode/Up"); }
-function deckAModeDown()              { sendDeck("DeckA", "Mode/Down"); }
-function deckAGlobalId(val)           { sendDeck("DeckA", "GlobalId",           val); }
-function deckAGlobalIdUp()            { sendDeck("DeckA", "GlobalId/Up"); }
-function deckAGlobalIdDown()          { sendDeck("DeckA", "GlobalId/Down"); }
-function deckARed(val)                { sendDeck("DeckA", "Red",                val); }
-function deckARedOffset(val)          { sendDeck("DeckA", "Red/Offset",         val); }
-function deckAGreen(val)              { sendDeck("DeckA", "Green",              val); }
-function deckAGreenOffset(val)        { sendDeck("DeckA", "Green/Offset",       val); }
-function deckABlue(val)               { sendDeck("DeckA", "Blue",               val); }
-function deckABlueOffset(val)         { sendDeck("DeckA", "Blue/Offset",        val); }
-function deckAWhite(val)              { sendDeck("DeckA", "White",              val); }
-function deckAWhiteOffset(val)        { sendDeck("DeckA", "White/Offset",       val); }
-function deckARgb(r, g, b)            { local.send("/DeckA/Rgb",                r, g, b); }
-function deckAStoragesIndex(val)      { sendDeck("DeckA", "Storages/Index",       val); }
-function deckAStoragesIndexUp()       { sendDeck("DeckA", "Storages/Index/Up"); }
-function deckAStoragesIndexDown()     { sendDeck("DeckA", "Storages/Index/Down"); }
-function deckAPlacesIndex(val)        { sendDeck("DeckA", "Places/Index",         val); }
-function deckAPlacesIndexUp()         { sendDeck("DeckA", "Places/Index/Up"); }
-function deckAPlacesIndexDown()       { sendDeck("DeckA", "Places/Index/Down"); }
+function deckAPause(val)                         { sendDeck("DeckA", "Pause",              b(val)); }
+function deckASpeedMaster(val)                   { sendDeck("DeckA", "SpeedMaster",        val); }
+function deckASpeedMasterOffset(val)             { sendDeck("DeckA", "SpeedMaster/Offset", val); }
+function deckASubmaster(val)                     { sendDeck("DeckA", "Submaster",          val); }
+function deckASubmasterOffset(val)               { sendDeck("DeckA", "Submaster/Offset",   val); }
+
+// ── Deck A ─ Filter ───────────────────────────────────────────────────────────
+
+function deckAFilter(val)                        { sendDeck("DeckA", "Filter",             val); }
+function deckAFilterUp()                         { sendDeck("DeckA", "Filter/Up"); }
+function deckAFilterDown()                       { sendDeck("DeckA", "Filter/Down"); }
+
+// ── Deck A ─ FilterColor ──────────────────────────────────────────────────────
+
+function deckAFilterColorMode(val)               { sendDeck("DeckA", "FilterColor/Mode",               val); }
+function deckAFilterColorModeUp()                { sendDeck("DeckA", "FilterColor/Mode/Up"); }
+function deckAFilterColorModeDown()              { sendDeck("DeckA", "FilterColor/Mode/Down"); }
+function deckAFilterColorGlobalId(val)           { sendDeck("DeckA", "FilterColor/GlobalId",           val); }
+function deckAFilterColorGlobalIdUp()            { sendDeck("DeckA", "FilterColor/GlobalId/Up"); }
+function deckAFilterColorGlobalIdDown()          { sendDeck("DeckA", "FilterColor/GlobalId/Down"); }
+function deckAFilterColorRed(val)                { sendDeck("DeckA", "FilterColor/Red",                val); }
+function deckAFilterColorRedOffset(val)          { sendDeck("DeckA", "FilterColor/Red/Offset",         val); }
+function deckAFilterColorGreen(val)              { sendDeck("DeckA", "FilterColor/Green",              val); }
+function deckAFilterColorGreenOffset(val)        { sendDeck("DeckA", "FilterColor/Green/Offset",       val); }
+function deckAFilterColorBlue(val)               { sendDeck("DeckA", "FilterColor/Blue",               val); }
+function deckAFilterColorBlueOffset(val)         { sendDeck("DeckA", "FilterColor/Blue/Offset",        val); }
+function deckAFilterColorWhite(val)              { sendDeck("DeckA", "FilterColor/White",              val); }
+function deckAFilterColorWhiteOffset(val)        { sendDeck("DeckA", "FilterColor/White/Offset",       val); }
+function deckAFilterColorRgb(r, g, b)            { local.send("/DeckA/FilterColor/Rgb",                r, g, b); }
+
+// ── Deck A ─ Storages ─────────────────────────────────────────────────────────
+
+function deckAStoragesIndex(val)                 { sendDeck("DeckA", "Storages/Index",       val); }
+function deckAStoragesIndexUp()                  { sendDeck("DeckA", "Storages/Index/Up"); }
+function deckAStoragesIndexDown()                { sendDeck("DeckA", "Storages/Index/Down"); }
+
+// ── Deck A ─ Places ───────────────────────────────────────────────────────────
+
+function deckAPlacesIndex(val)                                     { sendDeck("DeckA", "Places/Index",         val); }
+function deckAPlacesIndexUp()                                      { sendDeck("DeckA", "Places/Index/Up"); }
+function deckAPlacesIndexDown()                                    { sendDeck("DeckA", "Places/Index/Down"); }
+
+// ── Deck A ─ StoragePlace ─────────────────────────────────────────────────────
+
+function deckAStoragePlaceSpeedPitch(val)                          { sendDeck("DeckA", "StoragePlace/SpeedPitch",        val); }
+function deckAStoragePlaceSpeedPitchOffset(val)                    { sendDeck("DeckA", "StoragePlace/SpeedPitch/Offset", val); }
+function deckAStoragePlaceSubmaster(val)                           { sendDeck("DeckA", "StoragePlace/Submaster",         val); }
+function deckAStoragePlaceSubmasterOffset(val)                     { sendDeck("DeckA", "StoragePlace/Submaster/Offset",  val); }
+function deckAStorageFilter(val)                                   { sendDeck("DeckA", "StoragePlace/Filter",            val); }
+function deckAStorageFilterUp()                                    { sendDeck("DeckA", "StoragePlace/Filter/Up"); }
+function deckAStorageFilterDown()                                  { sendDeck("DeckA", "StoragePlace/Filter/Down"); }
+
+// ── Deck A ─ StoragePlace ─ Chaser ────────────────────────────────────────────
+
+function deckAStoragePlaceChaserPlaybackState(val)                 { sendDeck("DeckA", "StoragePlace/Chaser/PlaybackState",        val); }
+function deckAStoragePlaceChaserSpeedPitch(val)                    { sendDeck("DeckA", "StoragePlace/Chaser/SpeedPitch",           val); }
+function deckAStoragePlaceChaserSpeedPitchOffset(val)              { sendDeck("DeckA", "StoragePlace/Chaser/SpeedPitch/Offset",    val); }
+function deckAStoragePlaceChaserStepsIndex(val)                    { sendDeck("DeckA", "StoragePlace/Chaser/Steps/Index",          val); }
+function deckAStoragePlaceChaserStepsIndexUp()                     { sendDeck("DeckA", "StoragePlace/Chaser/Steps/Index/Up"); }
+function deckAStoragePlaceChaserStepsIndexDown()                   { sendDeck("DeckA", "StoragePlace/Chaser/Steps/Index/Down"); }
+
+// ── Deck A ─ StoragePlace ─ Layers ────────────────────────────────────────────
+
+function deckAStoragePlaceLayersSubmaster(idx, val)                { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Submaster",                  val); }
+function deckAStoragePlaceLayersSubmasterOffset(idx, val)          { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Submaster/Offset",           val); }
+function deckAStoragePlaceLayersOpacity(idx, val)                  { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Opacity",                    val); }
+function deckAStoragePlaceLayersOpacityOffset(idx, val)            { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Opacity/Offset",             val); }
+function deckAStoragePlaceLayersBlind(idx, val)                    { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Blind",                      b(val)); }
+function deckAStoragePlaceLayersSolo(idx, val)                     { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Solo",                       b(val)); }
+function deckAStoragePlaceLayersFilter(idx, val)                   { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Filter",                     val); }
+function deckAStoragePlaceLayersFilterUp(idx)                      { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Filter/Up"); }
+function deckAStoragePlaceLayersFilterDown(idx)                    { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Filter/Down"); }
+function deckAStoragePlaceLayersMixMode(idx, val)                  { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/MixMode",                    val); }
+function deckAStoragePlaceLayersMixModeUp(idx)                     { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/MixMode/Up"); }
+function deckAStoragePlaceLayersMixModeDown(idx)                   { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/MixMode/Down"); }
+function deckAStoragePlaceLayersChaserPlaybackState(idx, val)      { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/PlaybackState",       val); }
+function deckAStoragePlaceLayersChaserSpeedPitch(idx, val)         { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/SpeedPitch",          val); }
+function deckAStoragePlaceLayersChaserSpeedPitchOffset(idx, val)   { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/SpeedPitch/Offset",   val); }
+function deckAStoragePlaceLayersChaserStepsIndex(idx, val)         { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index",         val); }
+function deckAStoragePlaceLayersChaserStepsIndexUp(idx)            { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index/Up"); }
+function deckAStoragePlaceLayersChaserStepsIndexDown(idx)          { sendDeck("DeckA", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index/Down"); }
 
 // ── Deck B ────────────────────────────────────────────────────────────────────
 
@@ -70,77 +121,82 @@ function deckBSpeedMaster(val)        { sendDeck("DeckB", "SpeedMaster",        
 function deckBSpeedMasterOffset(val)  { sendDeck("DeckB", "SpeedMaster/Offset", val); }
 function deckBSubmaster(val)          { sendDeck("DeckB", "Submaster",          val); }
 function deckBSubmasterOffset(val)    { sendDeck("DeckB", "Submaster/Offset",   val); }
+
+// ── Deck B ─ Filter ───────────────────────────────────────────────────────────
+
 function deckBFilter(val)             { sendDeck("DeckB", "Filter",             val); }
 function deckBFilterUp()              { sendDeck("DeckB", "Filter/Up"); }
 function deckBFilterDown()            { sendDeck("DeckB", "Filter/Down"); }
-function deckBFilterColor()           { sendDeck("DeckB", "FilterColor"); }
-function deckBMode(val)               { sendDeck("DeckB", "Mode",               val); }
-function deckBModeUp()                { sendDeck("DeckB", "Mode/Up"); }
-function deckBModeDown()              { sendDeck("DeckB", "Mode/Down"); }
-function deckBGlobalId(val)           { sendDeck("DeckB", "GlobalId",           val); }
-function deckBGlobalIdUp()            { sendDeck("DeckB", "GlobalId/Up"); }
-function deckBGlobalIdDown()          { sendDeck("DeckB", "GlobalId/Down"); }
-function deckBRed(val)                { sendDeck("DeckB", "Red",                val); }
-function deckBRedOffset(val)          { sendDeck("DeckB", "Red/Offset",         val); }
-function deckBGreen(val)              { sendDeck("DeckB", "Green",              val); }
-function deckBGreenOffset(val)        { sendDeck("DeckB", "Green/Offset",       val); }
-function deckBBlue(val)               { sendDeck("DeckB", "Blue",               val); }
-function deckBBlueOffset(val)         { sendDeck("DeckB", "Blue/Offset",        val); }
-function deckBWhite(val)              { sendDeck("DeckB", "White",              val); }
-function deckBWhiteOffset(val)        { sendDeck("DeckB", "White/Offset",       val); }
-function deckBRgb(r, g, b)            { local.send("/DeckB/Rgb",                r, g, b); }
-function deckBStoragesIndex(val)      { sendDeck("DeckB", "Storages/Index",       val); }
-function deckBStoragesIndexUp()       { sendDeck("DeckB", "Storages/Index/Up"); }
-function deckBStoragesIndexDown()     { sendDeck("DeckB", "Storages/Index/Down"); }
-function deckBPlacesIndex(val)        { sendDeck("DeckB", "Places/Index",         val); }
-function deckBPlacesIndexUp()         { sendDeck("DeckB", "Places/Index/Up"); }
-function deckBPlacesIndexDown()       { sendDeck("DeckB", "Places/Index/Down"); }
 
-// ── Storages ──────────────────────────────────────────────────────────────────
+// ── Deck B ─ FilterColor ──────────────────────────────────────────────────────
 
-function storagesIndex(val)              { local.send("/Storages/Index",                          val); }
-function storagesIndexUp()               { local.send("/Storages/Index/Up"); }
-function storagesIndexDown()             { local.send("/Storages/Index/Down"); }
-function storagesPlacesIndex(val)        { local.send("/Storages/Places/Index",                   val); }
-function storagesPlacesIndexUp()         { local.send("/Storages/Places/Index/Up"); }
-function storagesPlacesIndexDown()       { local.send("/Storages/Places/Index/Down"); }
-function storagesSpeedPitch(val)         { local.send("/Storages/StoragePlace/SpeedPitch",        val); }
-function storagesSpeedPitchOffset(val)   { local.send("/Storages/StoragePlace/SpeedPitch/Offset", val); }
-function storagesSubmaster(val)          { local.send("/Storages/StoragePlace/Submaster",         val); }
-function storagesSubmasterOffset(val)    { local.send("/Storages/StoragePlace/Submaster/Offset",  val); }
-function storagesFilter(val)             { local.send("/Storages/StoragePlace/Filter",            val); }
-function storagesFilterUp()              { local.send("/Storages/StoragePlace/Filter/Up"); }
-function storagesFilterDown()            { local.send("/Storages/StoragePlace/Filter/Down"); }
+function deckBFilterColorMode(val)               { sendDeck("DeckB", "FilterColor/Mode",               val); }
+function deckBFilterColorModeUp()                { sendDeck("DeckB", "FilterColor/Mode/Up"); }
+function deckBFilterColorModeDown()              { sendDeck("DeckB", "FilterColor/Mode/Down"); }
+function deckBFilterColorGlobalId(val)           { sendDeck("DeckB", "FilterColor/GlobalId",           val); }
+function deckBFilterColorGlobalIdUp()            { sendDeck("DeckB", "FilterColor/GlobalId/Up"); }
+function deckBFilterColorGlobalIdDown()          { sendDeck("DeckB", "FilterColor/GlobalId/Down"); }
+function deckBFilterColorRed(val)                { sendDeck("DeckB", "FilterColor/Red",                val); }
+function deckBFilterColorRedOffset(val)          { sendDeck("DeckB", "FilterColor/Red/Offset",         val); }
+function deckBFilterColorGreen(val)              { sendDeck("DeckB", "FilterColor/Green",              val); }
+function deckBFilterColorGreenOffset(val)        { sendDeck("DeckB", "FilterColor/Green/Offset",       val); }
+function deckBFilterColorBlue(val)               { sendDeck("DeckB", "FilterColor/Blue",               val); }
+function deckBFilterColorBlueOffset(val)         { sendDeck("DeckB", "FilterColor/Blue/Offset",        val); }
+function deckBFilterColorWhite(val)              { sendDeck("DeckB", "FilterColor/White",              val); }
+function deckBFilterColorWhiteOffset(val)        { sendDeck("DeckB", "FilterColor/White/Offset",       val); }
+function deckBFilterColorRgb(r, g, b)            { local.send("/DeckB/FilterColor/Rgb",                r, g, b); }
 
-// ── Chaser ────────────────────────────────────────────────────────────────────
+// ── Deck B ─ Storages ─────────────────────────────────────────────────────────
 
-function chaserPlaybackState(val)      { local.send("/Chaser/PlaybackState",        val); }
-function chaserSpeedPitch(val)         { local.send("/Chaser/SpeedPitch",           val); }
-function chaserSpeedPitchOffset(val)   { local.send("/Chaser/SpeedPitch/Offset",    val); }
-function chaserStepsIndex(val)         { local.send("/Chaser/Steps/Index",          val); }
-function chaserStepsIndexUp()          { local.send("/Chaser/Steps/Index/Up"); }
-function chaserStepsIndexDown()        { local.send("/Chaser/Steps/Index/Down"); }
+function deckBStoragesIndex(val)                 { sendDeck("DeckB", "Storages/Index",       val); }
+function deckBStoragesIndexUp()                  { sendDeck("DeckB", "Storages/Index/Up"); }
+function deckBStoragesIndexDown()                { sendDeck("DeckB", "Storages/Index/Down"); }
 
-// ── Layers ────────────────────────────────────────────────────────────────────
+// ── Deck B ─ Places ───────────────────────────────────────────────────────────
 
-function layerSubmaster(idx, val)               { local.send("/Layers/" + idx + "/Submaster",                  val); }
-function layerSubmasterOffset(idx, val)         { local.send("/Layers/" + idx + "/Submaster/Offset",           val); }
-function layerOpacity(idx, val)                 { local.send("/Layers/" + idx + "/Opacity",                    val); }
-function layerOpacityOffset(idx, val)           { local.send("/Layers/" + idx + "/Opacity/Offset",             val); }
-function layerBlind(idx, val)                   { local.send("/Layers/" + idx + "/Blind",                      b(val)); }
-function layerSolo(idx, val)                    { local.send("/Layers/" + idx + "/Solo",                       b(val)); }
-function layerFilter(idx, val)                  { local.send("/Layers/" + idx + "/Filter",                     val); }
-function layerFilterUp(idx)                     { local.send("/Layers/" + idx + "/Filter/Up"); }
-function layerFilterDown(idx)                   { local.send("/Layers/" + idx + "/Filter/Down"); }
-function layerMixMode(idx, val)                 { local.send("/Layers/" + idx + "/MixMode",                    val); }
-function layerMixModeUp(idx)                    { local.send("/Layers/" + idx + "/MixMode/Up"); }
-function layerMixModeDown(idx)                  { local.send("/Layers/" + idx + "/MixMode/Down"); }
-function layerChaserPlaybackState(idx, val)     { local.send("/Layers/" + idx + "/Chaser/PlaybackState",       val); }
-function layerChaserSpeedPitch(idx, val)        { local.send("/Layers/" + idx + "/Chaser/SpeedPitch",          val); }
-function layerChaserSpeedPitchOffset(idx, val)  { local.send("/Layers/" + idx + "/Chaser/SpeedPitch/Offset",   val); }
-function layerChaserStepsIndex(idx, val)        { local.send("/Layers/" + idx + "/Chaser/Steps/Index",         val); }
-function layerChaserStepsIndexUp(idx)           { local.send("/Layers/" + idx + "/Chaser/Steps/Index/Up"); }
-function layerChaserStepsIndexDown(idx)         { local.send("/Layers/" + idx + "/Chaser/Steps/Index/Down"); }
+function deckBPlacesIndex(val)                   { sendDeck("DeckB", "Places/Index",         val); }
+function deckBPlacesIndexUp()                    { sendDeck("DeckB", "Places/Index/Up"); }
+function deckBPlacesIndexDown()                  { sendDeck("DeckB", "Places/Index/Down"); }
+
+// ── Deck B ─ StoragePlace ─────────────────────────────────────────────────────
+
+function deckBStoragePlaceSpeedPitch(val)                          { sendDeck("DeckB", "StoragePlace/SpeedPitch",        val); }
+function deckBStoragePlaceSpeedPitchOffset(val)                    { sendDeck("DeckB", "StoragePlace/SpeedPitch/Offset", val); }
+function deckBStoragePlaceSubmaster(val)                           { sendDeck("DeckB", "StoragePlace/Submaster",         val); }
+function deckBStoragePlaceSubmasterOffset(val)                     { sendDeck("DeckB", "StoragePlace/Submaster/Offset",  val); }
+function deckBStorageFilter(val)                                   { sendDeck("DeckB", "StoragePlace/Filter",            val); }
+function deckBStorageFilterUp()                                    { sendDeck("DeckB", "StoragePlace/Filter/Up"); }
+function deckBStorageFilterDown()                                  { sendDeck("DeckB", "StoragePlace/Filter/Down"); }
+
+// ── Deck B ─ StoragePlace ─ Chaser ────────────────────────────────────────────
+
+function deckBStoragePlaceChaserPlaybackState(val)                 { sendDeck("DeckB", "StoragePlace/Chaser/PlaybackState",        val); }
+function deckBStoragePlaceChaserSpeedPitch(val)                    { sendDeck("DeckB", "StoragePlace/Chaser/SpeedPitch",           val); }
+function deckBStoragePlaceChaserSpeedPitchOffset(val)              { sendDeck("DeckB", "StoragePlace/Chaser/SpeedPitch/Offset",    val); }
+function deckBStoragePlaceChaserStepsIndex(val)                    { sendDeck("DeckB", "StoragePlace/Chaser/Steps/Index",          val); }
+function deckBStoragePlaceChaserStepsIndexUp()                     { sendDeck("DeckB", "StoragePlace/Chaser/Steps/Index/Up"); }
+function deckBStoragePlaceChaserStepsIndexDown()                   { sendDeck("DeckB", "StoragePlace/Chaser/Steps/Index/Down"); }
+
+// ── Deck B ─ StoragePlace ─ Layers ────────────────────────────────────────────
+
+function deckBStoragePlaceLayersSubmaster(idx, val)                { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Submaster",                  val); }
+function deckBStoragePlaceLayersSubmasterOffset(idx, val)          { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Submaster/Offset",           val); }
+function deckBStoragePlaceLayersOpacity(idx, val)                  { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Opacity",                    val); }
+function deckBStoragePlaceLayersOpacityOffset(idx, val)            { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Opacity/Offset",             val); }
+function deckBStoragePlaceLayersBlind(idx, val)                    { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Blind",                      b(val)); }
+function deckBStoragePlaceLayersSolo(idx, val)                     { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Solo",                       b(val)); }
+function deckBStoragePlaceLayersFilter(idx, val)                   { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Filter",                     val); }
+function deckBStoragePlaceLayersFilterUp(idx)                      { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Filter/Up"); }
+function deckBStoragePlaceLayersFilterDown(idx)                    { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Filter/Down"); }
+function deckBStoragePlaceLayersMixMode(idx, val)                  { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/MixMode",                    val); }
+function deckBStoragePlaceLayersMixModeUp(idx)                     { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/MixMode/Up"); }
+function deckBStoragePlaceLayersMixModeDown(idx)                   { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/MixMode/Down"); }
+function deckBStoragePlaceLayersChaserPlaybackState(idx, val)      { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/PlaybackState",       val); }
+function deckBStoragePlaceLayersChaserSpeedPitch(idx, val)         { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/SpeedPitch",          val); }
+function deckBStoragePlaceLayersChaserSpeedPitchOffset(idx, val)   { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/SpeedPitch/Offset",   val); }
+function deckBStoragePlaceLayersChaserStepsIndex(idx, val)         { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index",         val); }
+function deckBStoragePlaceLayersChaserStepsIndexUp(idx)            { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index/Up"); }
+function deckBStoragePlaceLayersChaserStepsIndexDown(idx)          { sendDeck("DeckB", "StoragePlace/Layers/" + idx + "/Chaser/Steps/Index/Down"); }
 
 // ── Output ────────────────────────────────────────────────────────────────────
 
@@ -168,33 +224,36 @@ function outputWhite(val)        { local.send("/Output/White",         val); }
 function outputWhiteOffset(val)  { local.send("/Output/White/Offset",  val); }
 function outputRgb(r, g, b)      { local.send("/Output/Rgb",           r, g, b); }
 
-// ── StrobeColor ───────────────────────────────────────────────────────────────
+// ── Output ─ StrobeColor ──────────────────────────────────────────────────────
 
-function strobeColorMode(val)          { local.send("/StrobeColor/Mode",          val); }
-function strobeColorModeUp()           { local.send("/StrobeColor/Mode/Up"); }
-function strobeColorModeDown()         { local.send("/StrobeColor/Mode/Down"); }
-function strobeColorGlobalId(val)      { local.send("/StrobeColor/GlobalId",      val); }
-function strobeColorGlobalIdUp()       { local.send("/StrobeColor/GlobalId/Up"); }
-function strobeColorGlobalIdDown()     { local.send("/StrobeColor/GlobalId/Down"); }
-function strobeColorRed(val)           { local.send("/StrobeColor/Red",           val); }
-function strobeColorRedOffset(val)     { local.send("/StrobeColor/Red/Offset",    val); }
-function strobeColorGreen(val)         { local.send("/StrobeColor/Green",         val); }
-function strobeColorGreenOffset(val)   { local.send("/StrobeColor/Green/Offset",  val); }
-function strobeColorBlue(val)          { local.send("/StrobeColor/Blue",          val); }
-function strobeColorBlueOffset(val)    { local.send("/StrobeColor/Blue/Offset",   val); }
-function strobeColorWhite(val)         { local.send("/StrobeColor/White",         val); }
-function strobeColorWhiteOffset(val)   { local.send("/StrobeColor/White/Offset",  val); }
-function strobeColorRgb(r, g, b)       { local.send("/StrobeColor/Rgb",           r, g, b); }
-function strobeColorStrobe(val)        { local.send("/StrobeColor/Strobe",        val); }
-function strobeColorStrobeOffset(val)  { local.send("/StrobeColor/Strobe/Offset", val); }
+function outputStrobeColorMode(val)          { local.send("/Output/StrobeColor/Mode",          val); }
+function outputStrobeColorModeUp()           { local.send("/Output/StrobeColor/Mode/Up"); }
+function outputStrobeColorModeDown()         { local.send("/Output/StrobeColor/Mode/Down"); }
+function outputStrobeColorGlobalId(val)      { local.send("/Output/StrobeColor/GlobalId",      val); }
+function outputStrobeColorGlobalIdUp()       { local.send("/Output/StrobeColor/GlobalId/Up"); }
+function outputStrobeColorGlobalIdDown()     { local.send("/Output/StrobeColor/GlobalId/Down"); }
+function outputStrobeColorRed(val)           { local.send("/Output/StrobeColor/Red",           val); }
+function outputStrobeColorRedOffset(val)     { local.send("/Output/StrobeColor/Red/Offset",    val); }
+function outputStrobeColorGreen(val)         { local.send("/Output/StrobeColor/Green",         val); }
+function outputStrobeColorGreenOffset(val)   { local.send("/Output/StrobeColor/Green/Offset",  val); }
+function outputStrobeColorBlue(val)          { local.send("/Output/StrobeColor/Blue",          val); }
+function outputStrobeColorBlueOffset(val)    { local.send("/Output/StrobeColor/Blue/Offset",   val); }
+function outputStrobeColorWhite(val)         { local.send("/Output/StrobeColor/White",         val); }
+function outputStrobeColorWhiteOffset(val)   { local.send("/Output/StrobeColor/White/Offset",  val); }
+function outputStrobeColorRgb(r, g, b)       { local.send("/Output/StrobeColor/Rgb",           r, g, b); }
+
+// ── Output ─ Strobe ───────────────────────────────────────────────────────────
+
+function outputStrobe(val)        { local.send("/Output/Strobe",        val); }
+function outputStrobeOffset(val)  { local.send("/Output/Strobe/Offset", val); }
 
 // ── Fade ──────────────────────────────────────────────────────────────────────
 
-function fadeTime(val)        { local.send("/Fade/Time",        val); }
-function fadeTimeOffset(val)  { local.send("/Fade/Time/Offset", val); }
-function fadeType(val)        { local.send("/Fade/Type",        val); }
-function fadeTypeUp()         { local.send("/Fade/Type/Up"); }
-function fadeTypeDown()       { local.send("/Fade/Type/Down"); }
+function fadeTime(val)        { local.send("/Fade/Time",        val);  }
+function fadeTimeOffset(val)  { local.send("/Fade/Time/Offset", val);  }
+function fadeType(val)        { local.send("/Fade/Type",        val);  }
+function fadeTypeUp()         { local.send("/Fade/Type/Up");           }
+function fadeTypeDown()       { local.send("/Fade/Type/Down");         }
 function fadeValue(val)       { local.send("/Fade/Value",        val); }
 function fadeValueOffset(val) { local.send("/Fade/Value/Offset", val); }
 function fadeAutomatic()      { local.send("/Fade/Automatic"); }
@@ -214,34 +273,34 @@ function colorKitWhite(idx, val)        { local.send("/ColorKit/GlobalColors/" +
 function colorKitWhiteOffset(idx, val)  { local.send("/ColorKit/GlobalColors/" + idx + "/White/Offset", val); }
 function colorKitAlpha(idx, val)        { local.send("/ColorKit/GlobalColors/" + idx + "/Alpha",        val); }
 function colorKitAlphaOffset(idx, val)  { local.send("/ColorKit/GlobalColors/" + idx + "/Alpha/Offset", val); }
-function colorKitRgb(idx, r, g, bv)    { local.send("/ColorKit/GlobalColors/" + idx + "/Rgb",          r, g, bv); }
+function colorKitRgb(idx, r, g, bv)     { local.send("/ColorKit/GlobalColors/" + idx + "/Rgb",     r, g, bv); }
 
-// ── GroupControl ──────────────────────────────────────────────────────────────
+// ── GroupControl ───────────────────────────────────────────────────────────────
 
-function groupControlDefaults()                   { local.send("/GroupControl/Defaults"); }
-function groupValue(idx, val)                     { local.send("/GroupControl/Groups/" + idx + "/Value",                    val); }
-function groupValueOffset(idx, val)               { local.send("/GroupControl/Groups/" + idx + "/Value/Offset",             val); }
-function groupFlash(idx, val)                     { local.send("/GroupControl/Groups/" + idx + "/Flash",                    b(val)); }
-function groupChaserPlaybackState(idx, val)       { local.send("/GroupControl/Groups/" + idx + "/Chaser/PlaybackState",     val); }
-function groupChaserSpeedPitch(idx, val)          { local.send("/GroupControl/Groups/" + idx + "/Chaser/SpeedPitch",        val); }
-function groupChaserSpeedPitchOffset(idx, val)    { local.send("/GroupControl/Groups/" + idx + "/Chaser/SpeedPitch/Offset", val); }
-function groupChaserStepsIndex(idx, val)          { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index",       val); }
-function groupChaserStepsIndexUp(idx)             { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index/Up"); }
-function groupChaserStepsIndexDown(idx)           { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index/Down"); }
-function groupFadeTime(idx, val)                  { local.send("/GroupControl/Groups/" + idx + "/FadeTime",                 val); }
-function groupFadeTimeOffset(idx, val)            { local.send("/GroupControl/Groups/" + idx + "/FadeTime/Offset",          val); }
+function groupControlDefaults()                          { local.send("/GroupControl/Defaults"); }
+function groupControlGroupsValue(idx, val)               { local.send("/GroupControl/Groups/" + idx + "/Value",                    val); }
+function groupControlGroupsValueOffset(idx, val)         { local.send("/GroupControl/Groups/" + idx + "/Value/Offset",             val); }
+function groupControlGroupsFlash(idx, val)               { local.send("/GroupControl/Groups/" + idx + "/Flash",                 b(val)); }
+function groupControlChaserPlaybackState(idx, val)       { local.send("/GroupControl/Groups/" + idx + "/Chaser/PlaybackState",     val); }
+function groupControlChaserSpeedPitch(idx, val)          { local.send("/GroupControl/Groups/" + idx + "/Chaser/SpeedPitch",        val); }
+function groupControlChaserSpeedPitchOffset(idx, val)    { local.send("/GroupControl/Groups/" + idx + "/Chaser/SpeedPitch/Offset", val); }
+function groupControlChaserStepsIndex(idx, val)          { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index",       val); }
+function groupControlChaserStepsIndexUp(idx)             { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index/Up");         }
+function groupControlChaserStepsIndexDown(idx)           { local.send("/GroupControl/Groups/" + idx + "/Chaser/Steps/Index/Down");       }
+function groupControlFadeTime(idx, val)                  { local.send("/GroupControl/Groups/" + idx + "/FadeTime",                 val); }
+function groupControlFadeTimeOffset(idx, val)            { local.send("/GroupControl/Groups/" + idx + "/FadeTime/Offset",          val); }
 
-// ── Presets ───────────────────────────────────────────────────────────────────
+// ── GroupControl ─ Presets ────────────────────────────────────────────────────────
 
-function presetsIndex(val)  { local.send("/Presets/Index",      val); }
-function presetsIndexUp()   { local.send("/Presets/Index/Up"); }
-function presetsIndexDown() { local.send("/Presets/Index/Down"); }
+function groupControlPresetsIndex(val)                   { local.send("/GroupControl/Presets/Index",      val); }
+function groupControlPresetsIndexUp()                    { local.send("/GroupControl/Presets/Index/Up"); }
+function groupControlPresetsIndexDown()                  { local.send("/GroupControl/Presets/Index/Down"); }
 
 // ── DmxFaderTool ──────────────────────────────────────────────────────────────
 
-function dmxFaderState(idx, val)        { local.send("/DmxFaderTool/Faders/" + idx + "/State",        b(val)); }
-function dmxFaderValue(idx, val)        { local.send("/DmxFaderTool/Faders/" + idx + "/Value",        val); }
-function dmxFaderValueOffset(idx, val)  { local.send("/DmxFaderTool/Faders/" + idx + "/Value/Offset", val); }
+function dmxFaderToolState(idx, val)                         { local.send("/DmxFaderTool/Faders/" + idx + "/State",        b(val)); }
+function dmxFaderToolValue(idx, val)                         { local.send("/DmxFaderTool/Faders/" + idx + "/Value",        val); }
+function dmxFaderToolValueOffset(idx, val)                   { local.send("/DmxFaderTool/Faders/" + idx + "/Value/Offset", val); }
 
 // ── CueLists ──────────────────────────────────────────────────────────────────
 
@@ -256,22 +315,28 @@ function cueListsTimeCodeSourceDown()                    { local.send("/CueLists
 function cueListsCuesIndex(val)                          { local.send("/CueLists/Cues/Index",                             val); }
 function cueListsCuesIndexUp()                           { local.send("/CueLists/Cues/Index/Up"); }
 function cueListsCuesIndexDown()                         { local.send("/CueLists/Cues/Index/Down"); }
-function cueListsTimelinesIndex(val)                     { local.send("/CueLists/Timelines/Index",                        val); }
-function cueListsTimelinesIndexUp()                      { local.send("/CueLists/Timelines/Index/Up"); }
-function cueListsTimelinesIndexDown()                    { local.send("/CueLists/Timelines/Index/Down"); }
-function cueListsTimelinesPlaybackState(val)             { local.send("/CueLists/Timelines/PlaybackState",                val); }
-function cueListsTimelinesAudioSegmentsIndex(val)        { local.send("/CueLists/Timelines/AudioSegments/Index",          val); }
-function cueListsTimelinesAudioSegmentsIndexUp()         { local.send("/CueLists/Timelines/AudioSegments/Index/Up"); }
-function cueListsTimelinesAudioSegmentsIndexDown()       { local.send("/CueLists/Timelines/AudioSegments/Index/Down"); }
-function cueListsTimelinesCurrentSegmentsIndex(val)      { local.send("/CueLists/Timelines/CueSegments/Index",            val); }
-function cueListsTimelinesCurrentSegmentsIndexUp()       { local.send("/CueLists/Timelines/CueSegments/Index/Up"); }
-function cueListsTimelinesCurrentSegmentsIndexDown()     { local.send("/CueLists/Timelines/CueSegments/Index/Down"); }
-function cueListsTimelinesMarkersId(val)                 { local.send("/CueLists/Timelines/Markers/Id",                   val); }
-function cueListsTimelinesMarkersIdUp()                  { local.send("/CueLists/Timelines/Markers/Id/Up"); }
-function cueListsTimelinesMarkersIdDown()                { local.send("/CueLists/Timelines/Markers/Id/Down"); }
-function cueListsTimelinesSetupRegistersId(val)          { local.send("/CueLists/Timelines/SetupRegisters/Id",            val); }
-function cueListsTimelinesSetupRegistersIdUp()           { local.send("/CueLists/Timelines/SetupRegisters/Id/Up"); }
-function cueListsTimelinesSetupRegistersIdDown()         { local.send("/CueLists/Timelines/SetupRegisters/Id/Down"); }
+
+// ── Timelines ─────────────────────────────────────────────────────────────────
+
+function timelinesIndex(val)                     { local.send("/Timelines/Index",                        val); }
+function timelinesIndexUp()                      { local.send("/Timelines/Index/Up"); }
+function timelinesIndexDown()                    { local.send("/Timelines/Index/Down"); }
+function timelinesPlaybackState(val)             { local.send("/Timelines/PlaybackState",                val); }
+function timelinesAudioSegmentsIndex(val)        { local.send("/Timelines/AudioSegments/Index",          val); }
+function timelinesAudioSegmentsIndexUp()         { local.send("/Timelines/AudioSegments/Index/Up"); }
+function timelinesAudioSegmentsIndexDown()       { local.send("/Timelines/AudioSegments/Index/Down"); }
+function timelinesCurrentSegmentsIndex(val)      { local.send("/Timelines/CueSegments/Index",            val); }
+function timelinesCurrentSegmentsIndexUp()       { local.send("/Timelines/CueSegments/Index/Up"); }
+function timelinesCurrentSegmentsIndexDown()     { local.send("/Timelines/CueSegments/Index/Down"); }
+function timelinesMarkersId(val)                 { local.send("/Timelines/Markers/Id",                   val); }
+function timelinesMarkersIdUp()                  { local.send("/Timelines/Markers/Id/Up"); }
+function timelinesMarkersIdDown()                { local.send("/Timelines/Markers/Id/Down"); }
+
+// ── Setup Registers ───────────────────────────────────────────────────────────
+
+function setupRegistersId(val)                   { local.send("/SetupRegisters/Id", val); }
+function setupRegistersIdUp()                    { local.send("/SetupRegisters/Id/Up"); }
+function setupRegistersIdDown()                  { local.send("/SetupRegisters/Id/Down"); }
 
 // ── Trigger ───────────────────────────────────────────────────────────────────
 
