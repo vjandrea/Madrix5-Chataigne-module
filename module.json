@@ -797,7 +797,7 @@
       }
     },
     "Deck B Filter": {
-      "menu": "Deck B",
+      "menu": "Deck B/Filter",
       "callback": "deckBFilter",
       "parameters": {
         "Value": {
@@ -809,15 +809,15 @@
       }
     },
     "Deck B Filter Up": {
-      "menu": "Deck B",
+      "menu": "Deck B/Filter",
       "callback": "deckBFilterUp"
     },
     "Deck B Filter Down": {
-      "menu": "Deck B",
+      "menu": "Deck B/Filter",
       "callback": "deckBFilterDown"
     },
     "Deck B FilterColor Mode": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorMode",
       "parameters": {
         "Value": {
@@ -829,15 +829,15 @@
       }
     },
     "Deck B FilterColor Mode Up": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorModeUp"
     },
     "Deck B FilterColor Mode Down": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorModeDown"
     },
-    "Deck B Filter ColorGlobal ID": {
-      "menu": "Deck B",
+    "Deck B FilterColor Global ID": {
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorGlobalId",
       "parameters": {
         "Value": {
@@ -848,15 +848,15 @@
       }
     },
     "Deck B FilterColor Global ID Up": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorGlobalIdUp"
     },
     "Deck B FilterColor Global ID Down": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorGlobalIdDown"
     },
     "Deck B FilterColor Red": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorRed",
       "parameters": {
         "Value": {
@@ -868,7 +868,7 @@
       }
     },
     "Deck B FilterColor Red Offset": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorRedOffset",
       "parameters": {
         "Value": {
@@ -878,7 +878,7 @@
       }
     },
     "Deck B FilterColor Green": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorGreen",
       "parameters": {
         "Value": {
@@ -890,7 +890,7 @@
       }
     },
     "Deck B FilterColor Green Offset": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorGreenOffset",
       "parameters": {
         "Value": {
@@ -900,7 +900,7 @@
       }
     },
     "Deck B FilterColor Blue": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorBlue",
       "parameters": {
         "Value": {
@@ -912,7 +912,7 @@
       }
     },
     "Deck B FilterColor Blue Offset": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorBlueOffset",
       "parameters": {
         "Value": {
@@ -922,7 +922,7 @@
       }
     },
     "Deck B FilterColor White": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorWhite",
       "parameters": {
         "Value": {
@@ -934,7 +934,7 @@
       }
     },
     "Deck B FilterColor White Offset": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorWhiteOffset",
       "parameters": {
         "Value": {
@@ -944,7 +944,7 @@
       }
     },
     "Deck B FilterColor RGB": {
-      "menu": "Deck B",
+      "menu": "Deck B/FilterColor",
       "callback": "deckBFilterColorRgb",
       "parameters": {
         "Red": {
@@ -1423,7 +1423,7 @@
       }
     },
     "Output Filter": {
-      "menu": "Output",
+      "menu": "Output/Filter",
       "callback": "outputFilter",
       "parameters": {
         "Value": {
@@ -1435,20 +1435,16 @@
       }
     },
     "Output Filter Up": {
-      "menu": "Output",
+      "menu": "Output/Filter",
       "callback": "outputFilterUp"
     },
     "Output Filter Down": {
-      "menu": "Output",
+      "menu": "Output/Filter",
       "callback": "outputFilterDown"
     },
-    "Output Filter Color": {
-      "menu": "Output",
-      "callback": "outputFilterColor"
-    },
-    "Output Mode": {
-      "menu": "Output",
-      "callback": "outputMode",
+    "Output FilterColor Mode": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorMode",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1458,17 +1454,17 @@
         }
       }
     },
-    "Output Mode Up": {
-      "menu": "Output",
-      "callback": "outputModeUp"
+    "Output FilterColor Mode Up": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorModeUp"
     },
-    "Output Mode Down": {
-      "menu": "Output",
-      "callback": "outputModeDown"
+    "Output FilterColor Mode Down": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorModeDown"
     },
-    "Output Global ID": {
-      "menu": "Output",
-      "callback": "outputGlobalId",
+    "Output FilterColor Global ID": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorGlobalId",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1477,17 +1473,17 @@
         }
       }
     },
-    "Output Global ID Up": {
-      "menu": "Output",
-      "callback": "outputGlobalIdUp"
+    "Output FilterColor Global ID Up": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorGlobalIdUp"
     },
-    "Output Global ID Down": {
-      "menu": "Output",
-      "callback": "outputGlobalIdDown"
+    "Output FilterColor Global ID Down": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorGlobalIdDown"
     },
-    "Output Red": {
-      "menu": "Output",
-      "callback": "outputRed",
+    "Output FilterColor Red": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorRed",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1497,9 +1493,9 @@
         }
       }
     },
-    "Output Red Offset": {
-      "menu": "Output",
-      "callback": "outputRedOffset",
+    "Output FilterColor Red Offset": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorRedOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1507,9 +1503,9 @@
         }
       }
     },
-    "Output Green": {
-      "menu": "Output",
-      "callback": "outputGreen",
+    "Output FilterColor Green": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorGreen",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1519,9 +1515,9 @@
         }
       }
     },
-    "Output Green Offset": {
-      "menu": "Output",
-      "callback": "outputGreenOffset",
+    "Output FilterColor Green Offset": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorGreenOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1529,9 +1525,9 @@
         }
       }
     },
-    "Output Blue": {
-      "menu": "Output",
-      "callback": "outputBlue",
+    "Output FilterColor Blue": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorBlue",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1541,9 +1537,9 @@
         }
       }
     },
-    "Output Blue Offset": {
-      "menu": "Output",
-      "callback": "outputBlueOffset",
+    "Output FilterColor Blue Offset": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorBlueOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1551,9 +1547,9 @@
         }
       }
     },
-    "Output White": {
-      "menu": "Output",
-      "callback": "outputWhite",
+    "Output FilterColor White": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorWhite",
       "parameters": {
         "Value": {
           "type": "Integer",
@@ -1563,9 +1559,9 @@
         }
       }
     },
-    "Output White Offset": {
-      "menu": "Output",
-      "callback": "outputWhiteOffset",
+    "Output FilterColor White Offset": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorWhiteOffset",
       "parameters": {
         "Value": {
           "type": "Float",
@@ -1573,9 +1569,9 @@
         }
       }
     },
-    "Output RGB": {
-      "menu": "Output",
-      "callback": "outputRgb",
+    "Output FilterColor RGB": {
+      "menu": "Output/FilterColor",
+      "callback": "outputFilterColorRgb",
       "parameters": {
         "Red": {
           "type": "Integer",
@@ -2093,11 +2089,6 @@
       "menu": "GroupControl/Chaser",
       "callback": "groupControlChaserPlaybackState",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Integer",
           "min": 0,
@@ -2110,11 +2101,6 @@
       "menu": "GroupControl/Chaser",
       "callback": "groupControlChaserSpeedPitch",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Float",
           "min": -10.0,
@@ -2127,11 +2113,6 @@
       "menu": "GroupControl/Chaser",
       "callback": "groupControlChaserSpeedPitchOffset",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Float",
           "default": 0
@@ -2142,11 +2123,6 @@
       "menu": "GroupControl/Chaser",
       "callback": "groupControlChaserStepsIndex",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Integer",
           "min": 0,
@@ -2156,35 +2132,16 @@
     },
     "GroupControl Chaser Steps Index Up": {
       "menu": "GroupControl/Chaser",
-      "callback": "groupControlChaserStepsIndexUp",
-      "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        }
-      }
+      "callback": "groupControlChaserStepsIndexUp"
     },
     "GroupControl Chaser Steps Index Down": {
       "menu": "GroupControl/Chaser",
-      "callback": "groupControlChaserStepsIndexDown",
-      "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        }
-      }
+      "callback": "groupControlChaserStepsIndexDown"
     },
     "GroupControl Fade Time": {
       "menu": "GroupControl/Chaser",
       "callback": "groupControlFadeTime",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Float",
           "min": 0.0,
@@ -2197,11 +2154,6 @@
       "menu": "GroupControl/Chaser",
       "callback": "groupControlFadeTimeOffset",
       "parameters": {
-        "Group Index": {
-          "type": "Integer",
-          "min": 0,
-          "default": 0
-        },
         "Value": {
           "type": "Float",
           "default": 0
