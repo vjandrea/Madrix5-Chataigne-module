@@ -4,9 +4,17 @@ This is a [Chataigne](https://benjamin.kuperberg.fr/chataigne) custom module tha
 
 To use this module, until it will be available among the [Community Modules](https://github.com/benkuper/Chataigne-community-modules/blob/main/modules.json), clone this repo or download/unzip it in `~/Documents/Chataigne/modules`.
 
+<img src="images/chataigne-screenshot.png" alt="" style="width: 1920px; height: auto"/>
+
 ## Madrix 5 configuration
 
+Clicking on **Preferences > Remote Control > Osc...** opens the **OSC Remote Settings popup** :
 
+<img src="images/madrix-screenshot.png" alt="Madrix screenshot" style="width: 300px; height: auto" />
+
+Check **Enable server**. If you check **Enable feedback** too, you should activate **OSC Input** in the module
+
+<img src="images/osc-input.png" alt="Chataigne Madrix 5 OSC Input activated" style="width: 500px; height: auto" />
 
 
 ## Resources

@@ -49,7 +49,7 @@
         }
       }
     },
-    "Input Level Offset": {
+    "Audio Input Level Offset": {
       "menu": "Audio/Input",
       "callback": "audioInputLevelOffset",
       "parameters": {
@@ -59,7 +59,7 @@
         }
       }
     },
-    "Input Mute": {
+    "Audio Input Mute": {
       "menu": "Audio/Input",
       "callback": "audioInputMute",
       "parameters": {
@@ -68,7 +68,7 @@
         }
       }
     },
-    "Output Level": {
+    "Audio Output Level": {
       "menu": "Audio/Output",
       "callback": "audioOutputLevel",
       "parameters": {
@@ -80,7 +80,7 @@
         }
       }
     },
-    "Output Level Offset": {
+    "Audio Output Level Offset": {
       "menu": "Audio/Output",
       "callback": "audioOutputLevelOffset",
       "parameters": {
@@ -90,7 +90,7 @@
         }
       }
     },
-    "Output Mute": {
+    "Audio Output Mute": {
       "menu": "Audio/Output",
       "callback": "audioOutputMute",
       "parameters": {
@@ -2139,7 +2139,7 @@
       "callback": "groupControlChaserStepsIndexDown"
     },
     "GroupControl Fade Time": {
-      "menu": "GroupControl/Chaser",
+      "menu": "GroupControl",
       "callback": "groupControlFadeTime",
       "parameters": {
         "Value": {
@@ -2151,7 +2151,7 @@
       }
     },
     "GroupControl Fade Time Offset": {
-      "menu": "GroupControl/Chaser",
+      "menu": "GroupControl",
       "callback": "groupControlFadeTimeOffset",
       "parameters": {
         "Value": {
